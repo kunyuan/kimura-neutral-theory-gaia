@@ -1,0 +1,80 @@
+{
+  "ir_hash": "sha256:109eb7610f037e73f0dfd79e2d74504a92ff52507ab2adce498dd0bba3185d89",
+  "manifest_schema_version": 1,
+  "package": "kimura-neutral-theory",
+  "premises": [
+    {
+      "content": "In man, the number of cell divisions along the germ line from the fertilized egg to a gamete is roughly 50.",
+      "content_hash": "340ebe4e1719f98f97cdcf37eda913582c1741f8eedae05a7b4beb778202166e",
+      "exported": false,
+      "interface_hash": "sha256:da32d583ab7a947e260ae63c27277604444949b16d5500cb249499cac6bb97c4",
+      "label": "cell_divisions_to_gamete",
+      "qid": "github:kimura_neutral_theory::cell_divisions_to_gamete",
+      "required_by": [
+        "github:kimura_neutral_theory::genetic_drift_importance"
+      ],
+      "role": "local_hole"
+    },
+    {
+      "content": "The rate of amino-acid substitution estimated by comparing gorilla and human cytochrome c (a chain of about 100 amino acids) turned out to be approximately one replacement in $4.5 \\times 10^7$ years.",
+      "content_hash": "517bb13ffad10158f87555228fd334e9268ddef84bc2cdf4076ce8f57c121b13",
+      "exported": false,
+      "interface_hash": "sha256:6ea213bbc85a10c3b349722abec16a6eac2ac28965f75cfc515a193510363518",
+      "label": "cytochrome_c_rate",
+      "qid": "github:kimura_neutral_theory::cytochrome_c_rate",
+      "required_by": [
+        "github:kimura_neutral_theory::selection_cannot_explain_rate"
+      ],
+      "role": "local_hole"
+    },
+    {
+      "content": "Comparative studies of haemoglobin molecules among different groups of mammals suggest that amino-acid substitution has taken place roughly at the rate of one amino-acid change in $10^7$ years for a chain consisting of about 140 amino acids. For example, by comparing the $\\alpha$ and $\\beta$ chains of man with those of horse, pig, cattle and rabbit, the figure of one amino-acid change in $7 \\times 10^6$ years was obtained (Zuckerkandl and Pauling, 1965).",
+      "content_hash": "4f4ed951ca5b2427704d2a9eff6c0d54cda6be50bbeb1b13137ab7b3c7c2d4b0",
+      "exported": false,
+      "interface_hash": "sha256:ff4835116559e9195457a1dbdd934adf36ed89372630319465817c8ce5d83a8f",
+      "label": "haemoglobin_rate",
+      "qid": "github:kimura_neutral_theory::haemoglobin_rate",
+      "required_by": [
+        "github:kimura_neutral_theory::selection_cannot_explain_rate"
+      ],
+      "role": "local_hole"
+    },
+    {
+      "content": "For a selectively neutral mutation in a diploid population of effective size $N_e$, the probability of eventual fixation is $p = 1/(2N_e)$, which equals the initial frequency of the new allele if it appears as a single copy.",
+      "content_hash": "09a886d08eedd3f80039d024b9076d1a44f009c2a4f0a54bb781acd2af44c45b",
+      "exported": false,
+      "interface_hash": "sha256:ff7930f84229d24b23fd0f098586b13fedc41868b88bb801102836ef4c08d24d",
+      "label": "neutral_fixation_probability",
+      "qid": "github:kimura_neutral_theory::neutral_fixation_probability",
+      "required_by": [
+        "github:kimura_neutral_theory::genetic_drift_importance"
+      ],
+      "role": "local_hole"
+    },
+    {
+      "content": "Comparing triosephosphate dehydrogenase of rabbit with that of other species yields a figure of at least one amino-acid substitution for every $2.5 \\times 10^7$ years for chains of about 1,110 amino acids. This figure is roughly equivalent to the rate of one amino-acid substitution in $2.8 \\times 10^7$ years for a chain consisting of 100 amino acids.",
+      "content_hash": "4709683381bb81cb9ebd43f3d364ba2c087c437b58c8a8f82eea9ccd33548527",
+      "exported": false,
+      "interface_hash": "sha256:fceb7e551c7614e854910ac60016c010b65cab15995d28c2fbfb8ad71c5b925d",
+      "label": "triosephosphate_rate",
+      "qid": "github:kimura_neutral_theory::triosephosphate_rate",
+      "required_by": [
+        "github:kimura_neutral_theory::selection_cannot_explain_rate"
+      ],
+      "role": "local_hole"
+    },
+    {
+      "content": "From a consideration of the average energy of hydrogen bonds and from information on mutation of rIIA gene in phage T4, Watson (1965) obtained $10^{-8}$ to $10^{-9}$ as the average probability of error in the insertion of a new nucleotide during DNA replication.",
+      "content_hash": "63e7f62218b9dbb5d6115f3a8983f29c69810e98b10cb848e60da94966d1ac81",
+      "exported": false,
+      "interface_hash": "sha256:8bea1703623c16f75e69e3559f24ce9897a13a0d4645558b7a6653a505670bcb",
+      "label": "watson_mutation_rate",
+      "qid": "github:kimura_neutral_theory::watson_mutation_rate",
+      "required_by": [
+        "github:kimura_neutral_theory::genetic_drift_importance"
+      ],
+      "role": "local_hole"
+    }
+  ],
+  "version": "0.1.0"
+}

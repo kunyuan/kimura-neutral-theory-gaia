@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Critical Review: Kimura (1968)</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --green: #16a34a;
+    --green-bg: #f0fdf4;
+    --green-border: #bbf7d0;
+    --amber: #d97706;
+    --amber-bg: #fffbeb;
+    --amber-border: #fde68a;
+    --red: #dc2626;
+    --red-bg: #fef2f2;
+    --red-border: #fecaca;
+    --blue: #2563eb;
+    --blue-bg: #eff6ff;
+    --blue-border: #bfdbfe;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-400: #9ca3af;
+    --gray-600: #4b5563;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', 'Noto Serif SC', serif;
+    line-height: 1.8;
+    color: var(--gray-800);
+    background: #fff;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  h1 {
+    font-size: 2.2em;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    color: var(--gray-900);
+    margin-top: 56px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gray-200);
+  }
+
+  h3 {
+    font-size: 1.15em;
+    color: var(--gray-800);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  p { margin-bottom: 16px; }
+
+  .subtitle {
+    font-size: 1.05em;
+    color: var(--gray-600);
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+
+  .meta {
+    font-size: 0.85em;
+    color: var(--gray-400);
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  /* Belief badges */
+  .belief {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-size: 0.95em;
+  }
+  .belief-high { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .belief-mid { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .belief-low { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+
+  /* Big belief number */
+  .belief-big {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 3.5em;
+    line-height: 1;
+  }
+  .belief-big.high { color: var(--green); }
+  .belief-big.mid { color: var(--amber); }
+  .belief-big.low { color: var(--red); }
+
+  /* Callout boxes */
+  .callout {
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-left: 4px solid;
+  }
+  .callout-green { background: var(--green-bg); border-color: var(--green); }
+  .callout-amber { background: var(--amber-bg); border-color: var(--amber); }
+  .callout-red { background: var(--red-bg); border-color: var(--red); }
+  .callout-blue { background: var(--blue-bg); border-color: var(--blue); }
+  .callout-title {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .callout-green .callout-title { color: var(--green); }
+  .callout-amber .callout-title { color: var(--amber); }
+  .callout-red .callout-title { color: var(--red); }
+  .callout-blue .callout-title { color: var(--blue); }
+
+  /* Progress bar */
+  .bar-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .bar-label {
+    flex: 0 0 300px;
+    font-size: 0.88em;
+    color: var(--gray-600);
+    text-align: right;
+    position: relative;
+    cursor: help;
+  }
+  .bar-track {
+    flex: 1;
+    height: 22px;
+    background: var(--gray-100);
+    border-radius: 11px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 11px;
+    transition: width 0.6s ease;
+  }
+  .bar-fill.high { background: linear-gradient(90deg, #22c55e, #16a34a); }
+  .bar-fill.mid { background: linear-gradient(90deg, #fbbf24, #d97706); }
+  .bar-fill.low { background: linear-gradient(90deg, #f87171, #dc2626); }
+  .bar-value {
+    flex: 0 0 48px;
+    font-weight: 700;
+    font-size: 0.92em;
+    text-align: left;
+  }
+  .bar-value.high { color: var(--green); }
+  .bar-value.mid { color: var(--amber); }
+  .bar-value.low { color: var(--red); }
+
+  /* Dashboard cards */
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .card {
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .card-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.82em;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .card-main {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 2.4em;
+    line-height: 1.1;
+  }
+  .card-sub {
+    font-size: 0.85em;
+    color: var(--gray-600);
+    margin-top: 4px;
+  }
+
+  /* Chain step */
+  .chain {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 24px 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .chain-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+  }
+  .chain-dot {
+    flex: 0 0 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85em;
+    color: #fff;
+    position: relative;
+  }
+  .chain-dot::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 24px;
+    background: var(--gray-200);
+  }
+  .chain-step:last-child .chain-dot::after { display: none; }
+  .chain-dot.high { background: var(--green); }
+  .chain-dot.mid { background: var(--amber); }
+  .chain-dot.low { background: var(--red); }
+  .chain-text { flex: 1; }
+  .chain-text strong { display: block; font-size: 0.95em; margin-bottom: 2px; }
+  .chain-text span { font-size: 0.85em; color: var(--gray-600); }
+
+  /* Mermaid */
+  .mermaid {
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  /* Recommendation box */
+  .recommendation {
+    background: var(--gray-50);
+    border: 2px solid var(--gray-800);
+    border-radius: 10px;
+    padding: 28px;
+    margin: 32px 0;
+  }
+  .recommendation h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+  }
+
+  /* Lead paragraph */
+  .lead {
+    font-size: 1.12em;
+    line-height: 1.9;
+    color: var(--gray-600);
+  }
+
+  blockquote {
+    border-left: 3px solid var(--gray-200);
+    padding-left: 20px;
+    margin: 20px 0;
+    color: var(--gray-600);
+    font-style: italic;
+  }
+
+  ul, ol { margin-bottom: 16px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  .highlight {
+    background: linear-gradient(to bottom, transparent 60%, #fde68a 60%);
+    padding: 0 2px;
+  }
+
+  .section-num {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 0.75em;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 640px) {
+    .dashboard { grid-template-columns: 1fr; }
+    .bar-label { flex: 0 0 160px; font-size: 0.8em; }
+    .belief-big { font-size: 2.5em; }
+    .card-main { font-size: 1.8em; }
+  }
+
+  /* CSS Tooltips */
+  .bar-label .tip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 0;
+    width: 320px;
+    background: var(--gray-900);
+    color: #fff;
+    font-size: 0.82em;
+    line-height: 1.5;
+    padding: 10px 14px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    z-index: 100;
+    pointer-events: none;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    text-align: left;
+  }
+  .bar-label .tip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 24px;
+    border: 6px solid transparent;
+    border-top-color: var(--gray-900);
+  }
+  .bar-label:hover .tip {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<h1>当进化跑得太快，自然选择追不上</h1>
+<p class="subtitle">对 Kimura (1968) "Evolutionary Rate at the Molecular Level" 的推理图审稿报告</p>
+<p class="meta">基于 Gaia 知识图谱形式化 &middot; 28 个知识节点 &middot; 21 条推理策略 &middot; Junction Tree 精确推断 (treewidth 3)</p>
+
+<!-- ==================== Section 1: Introduction ==================== -->
+
+<h2><span class="section-num">I. 导读</span>一道简单的算术题</h2>
+
+<p class="lead">
+1968年，日本遗传学家木村资生（Motoo Kimura）做了一道算术题。这道题只需要小学水平的乘除法，却引发了进化生物学半个世纪的争论。
+</p>
+
+<p>
+题目是这样的：比较不同哺乳动物的血红蛋白、细胞色素c和磷酸丙糖脱氢酶这三种蛋白质，可以估算出每条蛋白质链大约每几千万年发生一次氨基酸替换。听起来不快对吧？但哺乳动物的基因组有<strong>40亿个</strong>核苷酸对。把三种蛋白质的替换速率乘以整个基因组的大小，木村得到了一个惊人的数字：<span class="highlight">整个基因组大约每两年就发生一次核苷酸替换。</span>
+</p>
+
+<p>
+问题来了。1957年，Haldane计算过自然选择"驱动"一个基因替换所需的代价——大约每300代才能完成一次。对于哺乳动物来说，300代意味着数百年。但实际观测到的速率是每两年一次。差距是100到1000倍。
+</p>
+
+<p>
+木村的结论大胆得令人不安：<strong>既然自然选择跟不上这个速度，那大多数分子进化的替换一定不是自然选择驱动的——它们是"中性"的，靠随机遗传漂变固定在种群中。</strong>这就是"分子进化中性理论"的诞生。
+</p>
+
+<p>
+但当我们用推理图把木村的论证逐步拆解、追踪每一环的可信度时，会发现一个有趣的张力：论证的逻辑结构优雅有力，但数据基础异常薄弱——整个基因组的推断，建立在仅仅三种蛋白质的比较之上。
+</p>
+
+<!-- ==================== Section 2: Verdict Dashboard ==================== -->
+
+<h2><span class="section-num">II. 一图看清</span>结论全景</h2>
+
+<div class="dashboard">
+  <div class="card">
+    <div class="card-label">中性理论假说</div>
+    <div class="card-main" style="color: var(--red);">0.22</div>
+    <div class="card-sub">大多数替换是中性的</div>
+  </div>
+  <div class="card">
+    <div class="card-label">选择论解释力</div>
+    <div class="card-main" style="color: var(--red);">0.39</div>
+    <div class="card-sub">正选择驱动替换</div>
+  </div>
+  <div class="card">
+    <div class="card-label">遗传漂变的重要性</div>
+    <div class="card-main" style="color: var(--red);">0.39</div>
+    <div class="card-sub">随机漂变是主要力量</div>
+  </div>
+  <div class="card">
+    <div class="card-label">信息增益</div>
+    <div class="card-main" style="color: var(--blue);">0.2<span style="font-size:0.4em; font-weight:400;"> bits</span></div>
+    <div class="card-sub">推理结构减少的不确定性</div>
+  </div>
+</div>
+
+<p>下面是所有关键节点的置信度。悬停查看详细说明：</p>
+
+<div style="margin: 24px 0;">
+  <div class="bar-container">
+    <div class="bar-label">中性 vs 选择论的比较<span class="tip">将中性理论和选择论对替换速率的预测与实际观测进行比较。中性理论预测的速率与观测完美吻合，选择论预测的速率低了100-1000倍。这是整篇文章最有力的单一证据。</span></div>
+    <div class="bar-track"><div class="bar-fill high" style="width:100%"></div></div>
+    <div class="bar-value high">1.00</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">互斥约束：两种观点不能同时成立<span class="tip">中性理论和选择论关于分子进化的主导模式是互斥的：不可能大多数替换既是中性的又是被选择驱动的。</span></div>
+    <div class="bar-track"><div class="bar-fill high" style="width:100%"></div></div>
+    <div class="bar-value high">1.00</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">三种蛋白质的平均替换速率<span class="tip">综合血红蛋白、细胞色素c和磷酸丙糖脱氢酶的数据，得出100个氨基酸的链平均每2800万年发生一次替换。这是通过归纳推理从三个独立蛋白质家族得到的。</span></div>
+    <div class="bar-track"><div class="bar-fill mid" style="width:70%"></div></div>
+    <div class="bar-value mid">0.70</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">中性替换公式 k = u<span class="tip">中性突变的替换速率等于突变速率，与种群大小无关。这是从中性等位基因的固定概率1/(2Ne)严格推导出来的数学结果。</span></div>
+    <div class="bar-track"><div class="bar-fill mid" style="width:67%"></div></div>
+    <div class="bar-value mid">0.67</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">果蝇杂合度与中性预测一致<span class="tip">果蝇的蛋白质多态性水平（约35%杂合度）与中性理论的预测公式 He = 4Neu/(4Neu+1) 一致。这是独立于速率论证的支持证据。</span></div>
+    <div class="bar-track"><div class="bar-fill mid" style="width:64%"></div></div>
+    <div class="bar-value mid">0.64</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">Haldane 极限远低于观测速率<span class="tip">Haldane的选择代价理论限制正选择驱动的基因替换速率约为每300代一次。哺乳动物观测到的分子替换速率比这高100-1000倍。</span></div>
+    <div class="bar-track"><div class="bar-fill mid" style="width:59%"></div></div>
+    <div class="bar-value mid">0.59</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">突变速率与中性理论一致<span class="tip">估算的每代200-2000个碱基替换突变是Haldane极限的100-1000倍，与中性理论的预测k=u一致：如果大多数突变是中性的，高突变率直接预测高替换速率。</span></div>
+    <div class="bar-track"><div class="bar-fill mid" style="width:54%"></div></div>
+    <div class="bar-value mid">0.54</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">选择论观点<span class="tip">传统观点：大多数分子进化由正自然选择驱动，每次替换都因为带来选择优势而被固定。这个观点通过与中性理论的互斥约束被拉低。</span></div>
+    <div class="bar-track"><div class="bar-fill low" style="width:39%"></div></div>
+    <div class="bar-value low">0.39</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">基因组替换速率（~1/2年）<span class="tip">从三种蛋白质的平均速率外推到整个基因组（40亿核苷酸对），得出整个基因组大约每两年发生一次核苷酸替换。这是核心论证的关键中间步骤。</span></div>
+    <div class="bar-track"><div class="bar-fill low" style="width:39%"></div></div>
+    <div class="bar-value low">0.39</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">遗传漂变的重要性<span class="tip">如果中性理论正确，随机遗传漂变（而非自然选择）是塑造分子进化和维持种群多态性的主要力量。这挑战了1960年代"漂变可以忽略"的主流观点。</span></div>
+    <div class="bar-track"><div class="bar-fill low" style="width:39%"></div></div>
+    <div class="bar-value low">0.39</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">自然选择无法解释观测速率<span class="tip">观测到的核苷酸替换速率（每两年一次）比自然选择的理论极限（每300代一次）高100-1000倍。因此正自然选择不是分子进化的主要驱动力。</span></div>
+    <div class="bar-track"><div class="bar-fill low" style="width:30%"></div></div>
+    <div class="bar-value low">0.30</div>
+  </div>
+  <div class="bar-container">
+    <div class="bar-label">中性理论假说<span class="tip">大多数核苷酸替换对生物体适应度几乎没有影响（"中性"或"几乎中性"），它们在种群中被固定是靠随机遗传漂变而非自然选择。这是整篇文章的核心假说。</span></div>
+    <div class="bar-track"><div class="bar-fill low" style="width:22%"></div></div>
+    <div class="bar-value low">0.22</div>
+  </div>
+</div>
+
+<div class="mermaid">
+graph TB
+    HB["血红蛋白替换速率<br/><b>0.38</b>"]:::premise
+    CYTO["细胞色素c替换速率<br/><b>0.38</b>"]:::premise
+    TRIO["磷酸丙糖脱氢酶替换速率<br/><b>0.38</b>"]:::premise
+    AVG["三蛋白平均速率<br/><b>0.70</b>"]:::mid
+    GENOME["基因组替换速率<br/>~1/2年<br/><b>0.39</b>"]:::low
+    HALDANE["Haldane极限<br/><b>0.59</b>"]:::mid
+    CANT["选择无法解释<br/><b>0.30</b>"]:::exported
+    NEUTRAL["中性理论<br/><b>0.22</b>"]:::exported
+    SELECT["选择论<br/><b>0.39</b>"]:::low
+    DRIFT["漂变重要性<br/><b>0.39</b>"]:::exported
+
+    HB -->|"归纳"| AVG
+    CYTO -->|"归纳"| AVG
+    TRIO -->|"归纳"| AVG
+    AVG -->|"外推"| GENOME
+    GENOME --> HALDANE
+    GENOME --> CANT
+    HALDANE --> CANT
+    CANT -->|"prior=0.9"| NEUTRAL
+    NEUTRAL --> DRIFT
+    NEUTRAL ---|"互斥"| SELECT
+
+    classDef premise fill:#ddeeff,stroke:#4488bb,stroke-width:2px,color:#333
+    classDef mid fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#854d0e
+    classDef low fill:#fee2e2,stroke:#dc2626,stroke-width:1px,color:#991b1b
+    classDef exported fill:#dcfce7,stroke:#16a34a,stroke-width:3px,color:#166534
+</div>
+
+<div class="callout callout-blue" style="font-size: 0.9em;">
+  <div class="callout-title">关键概念速查</div>
+  <p style="margin-bottom: 8px;"><strong>核苷酸替换：</strong>在进化过程中，DNA序列中某个位置的核苷酸被另一个取代并在整个种群中固定下来。这不是个体突变，而是种群层面的变化——新突变最终取代了原来的版本。</p>
+  <p style="margin-bottom: 8px;"><strong>Haldane 的选择代价：</strong>每次自然选择"推动"一个有利突变在种群中固定，都需要淘汰携带旧等位基因的个体。这种淘汰有"代价"，限制了选择驱动的替换速率大约为每300代一次。</p>
+  <p style="margin-bottom: 8px;"><strong>中性突变：</strong>对生物体生存繁殖能力（适应度）几乎没有影响的DNA变化。不好也不坏，纯粹是"噪音"。木村认为大多数分子进化就是这种噪音的累积。</p>
+  <p style="margin-bottom: 8px;"><strong>遗传漂变：</strong>在有限大小的种群中，等位基因频率因随机抽样而发生变化。就像从一罐混合颜色的弹珠中随机取样——每代的"抽样"都可能偶然改变各颜色的比例，最终某种颜色可能纯粹靠运气占据整个罐子。</p>
+  <p style="margin-bottom: 8px;"><strong>k = u：</strong>中性理论最优美的结果。中性突变的替换速率（k）等于突变速率（u），与种群大小完全无关。推导很简洁：每代新增2N<sub>e</sub>u个中性突变，每个的固定概率是1/(2N<sub>e</sub>)，相乘后种群大小抵消。</p>
+  <p style="margin-bottom: 0;"><strong>归纳推理：</strong>从多个独立的具体观察（三种蛋白质各自的替换速率）推广得出一般性规律（所有蛋白质的平均替换速率）。观察越多、越独立，归纳越可靠。</p>
+</div>
+
+<!-- ==================== Section 3: Strongest Chain ==================== -->
+
+<h2><span class="section-num">III. 核心证据链</span>当预测遇上现实</h2>
+
+<p>
+木村论证中最有力的一环不是从数据到结论的长链——而是一个简洁的"溯因推理"（abduction）：哪个理论能更好地解释观测到的替换速率？这条证据链贡献了推理图中最大的信息增益（0.18 bits）。
+</p>
+
+<div class="chain">
+  <div class="chain-step">
+    <div class="chain-dot mid">0.39</div>
+    <div class="chain-text">
+      <strong>观测：基因组每两年发生一次核苷酸替换</strong>
+      <span>从三种蛋白质的比较数据外推到整个哺乳动物基因组（40亿核苷酸对），得出替换速率约为每两年一次。</span>
+    </div>
+  </div>
+  <div class="chain-step">
+    <div class="chain-dot low">0.39</div>
+    <div class="chain-text">
+      <strong>中性理论预测：k = u &asymp; 1/2年 &check;</strong>
+      <span>中性理论说替换速率等于突变速率。Watson估算的核苷酸突变率 &times; 基因组大小 &asymp; 每几年一次。完美匹配。</span>
+    </div>
+  </div>
+  <div class="chain-step">
+    <div class="chain-dot low">0.39</div>
+    <div class="chain-text">
+      <strong>选择论预测：&le; 1/300代 &asymp; 1/数百年 &cross;</strong>
+      <span>Haldane的选择代价限制正选择驱动的替换速率为每300代一次。对哺乳动物而言，这意味着每几百年一次——比观测值低100-1000倍。</span>
+    </div>
+  </div>
+  <div class="chain-step">
+    <div class="chain-dot high" style="font-size: 0.7em;">1.00</div>
+    <div class="chain-text">
+      <strong>判决：中性理论的预测压倒性地优于选择论</strong>
+      <span>两个理论对同一观测的预测差了2-3个数量级。中性理论的预测精确匹配，选择论完全无法解释。置信度接近1.0。</span>
+    </div>
+  </div>
+</div>
+
+<div class="callout callout-green">
+  <div class="callout-title">判定：逻辑结构极其有力</div>
+  <p>这个溯因推理的<strong>逻辑结构</strong>几乎是无懈可击的：如果你接受"每两年一次替换"这个观测，那中性理论的解释力远远超过选择论。比较判定的置信度达到 1.0，这是整个推理图中最强的单一环节。</p>
+  <p style="margin-top: 8px;">但请注意：这个判定的前提——"每两年一次替换"——本身只有 <span class="belief belief-low">0.39</span> 的置信度。<strong>逻辑对了，但数据根基不牢。</strong>这是木村整篇论文的核心张力。</p>
+</div>
+
+<!-- ==================== Section 4: What the paper got right ==================== -->
+
+<h2><span class="section-num">IV. 文章做对了什么</span></h2>
+
+<div class="callout callout-green">
+  <div class="callout-title">k = u：一个优美的理论预测</div>
+  <p>
+  中性替换公式 k = u 是整篇文章最漂亮的理论成果。它的推导是严格的数学演绎（置信度 <span class="belief belief-mid">0.67</span>）：中性等位基因的固定概率是 1/(2N<sub>e</sub>)，每代新增 2N<sub>e</sub>u 个中性突变，替换速率 = 2N<sub>e</sub>u &times; 1/(2N<sub>e</sub>) = u。种群大小完美抵消，产生一个与种群大小无关的替换速率——这个结果出人意料地简洁，而且可以直接被检验。
+  </p>
+</div>
+
+<div class="callout callout-green">
+  <div class="callout-title">三重归纳的收敛性</div>
+  <p>
+  木村没有只依赖一种蛋白质。他选了三个进化速率差异很大的蛋白质家族——血红蛋白（较快）、细胞色素c（很慢）、磷酸丙糖脱氢酶（中等）——它们的归一化替换速率在同一个数量级上收敛。这种从独立数据源的归纳推理使得平均速率的置信度达到了 <span class="belief belief-mid">0.70</span>，是推理图中最高的中间节点之一。三种蛋白质虽然不多，但作为独立证据的收敛是有说服力的。
+  </p>
+</div>
+
+<div class="callout callout-green">
+  <div class="callout-title">清晰的对立结构</div>
+  <p>
+  木村把问题框架化为中性理论 vs 选择论的明确对抗。这不是模糊的"可能这样也可能那样"——而是两个理论对同一个可测量的量（替换速率）做出了定量上差异巨大的预测。这种实验设计思维——让竞争假说做出可区分的预测——使论证具有天然的判别力。互斥约束的置信度达到 <span class="belief belief-high">1.00</span>，确认了两种观点确实不能同时为真。
+  </p>
+</div>
+
+<!-- ==================== Section 5: Where it breaks down ==================== -->
+
+<h2><span class="section-num">V. 论证的薄弱环节</span></h2>
+
+<p>
+在分析薄弱点之前，需要说明一个重要的技术性问题：推理图中，中性理论假说（0.22）比选择论（0.39）的置信度<em>更低</em>。这看起来矛盾——溯因推理明明压倒性支持中性理论。原因在于<strong>中性理论在推理图中有更多"下游消费者"</strong>（杂合度公式、漂变重要性、溯因推理、互斥约束），每个消费者都通过概率传播对它施加"拉力"，导致置信度被压低。这是概率推断的已知结构效应，不代表中性理论的科学论据比选择论弱。下面只讨论真正的科学薄弱点。
+</p>
+
+<h3>薄弱点 #1：从三种蛋白质到整个基因组的外推</h3>
+
+<div class="callout callout-red">
+  <div class="callout-title">基因组替换速率 — 置信度 0.39</div>
+  <p>
+  这是整篇文章的<strong>结构性瓶颈</strong>。木村从三种蛋白质的氨基酸替换速率外推到整个基因组的核苷酸替换速率。但问题是：哺乳动物基因组中只有<strong>不到5%的DNA编码蛋白质</strong>。剩下95%的非编码区域可能以完全不同的速率进化——可能更快（因为功能约束更弱），也可能更慢（如果它们大多是没有功能的"垃圾DNA"，根本不经历种群遗传学意义上的替换）。
+  </p>
+  <p style="margin-top: 8px;">
+  三种蛋白质是否能代表基因组？这个外推的支持策略先验概率只有 0.8（低于其他策略的 0.9），反映了这一步的不确定性。所有下游结论——"选择无法解释"（0.30）、"中性理论"（0.22）、"漂变重要性"（0.39）——都必须经过这个瓶颈。
+  </p>
+  <p style="margin-top: 8px;">
+  <strong>怎样能修复：</strong>从更多蛋白质家族（几十种而非三种）以及非编码区域获取替换速率数据。这在1968年无法做到，但后来几十年的全基因组测序确实验证了整体的数量级。
+  </p>
+</div>
+
+<h3>薄弱点 #2：Watson的突变率估算跨越一个数量级</h3>
+
+<div class="callout callout-amber">
+  <div class="callout-title">Watson 核苷酸误掺率 — 置信度 0.43</div>
+  <p>
+  木村估算每代突变数量时，使用Watson (1965) 的核苷酸误掺率：10<sup>-8</sup> 到 10<sup>-9</sup>——注意，这是一个<strong>整整10倍</strong>的不确定区间。这直接导致每代突变数估算为 200 到 2,000——也是10倍的区间。乘以50次细胞分裂到配子，得到的总突变率（0.36）是推理图中最低置信度的中间节点之一。
+  </p>
+  <p style="margin-top: 8px;">
+  这个不确定性通过"突变速率与中性理论一致"（0.54）传播到"遗传漂变的重要性"（0.39）。尽管数量级正确，但"100到1000倍超过Haldane极限"中的10倍不确定性意味着论证的精确性远低于其修辞所暗示的。
+  </p>
+  <p style="margin-top: 8px;">
+  <strong>怎样能修复：</strong>通过亲子全基因组测序直接测量每代每核苷酸突变率。这在2010年代已经实现，结果大约为 1.2 &times; 10<sup>-8</sup>，落在Watson估算的区间内但偏高端。
+  </p>
+</div>
+
+<h3>薄弱点 #3：蛋白质样本的代表性</h3>
+
+<div class="callout callout-amber">
+  <div class="callout-title">蛋白质叶节点 — 置信度 0.38</div>
+  <p>
+  三种蛋白质（血红蛋白、细胞色素c、磷酸丙糖脱氢酶）的原始先验都被设为 0.85-0.92（反映文献支持度），但推断后的置信度均下降到 0.38。这主要是结构性效应：每种蛋白质数据同时参与归纳推理和下游链条，消息传播算法对它们施加了向下的拉力。
+  </p>
+  <p style="margin-top: 8px;">
+  但这里也有一个真正的科学问题：<strong>三种蛋白质的选择并非随机的</strong>。它们是1960年代序列数据最丰富的蛋白质——恰好因为它们在进化研究中最有名。这是一种选择偏差。如果替换速率在不同蛋白质间差异很大（事实确实如此——后来的数据表明组蛋白几乎不变，而纤维蛋白肽变化极快），那三种蛋白质的平均值可能严重偏离全基因组的真实平均值。
+  </p>
+</div>
+
+<!-- ==================== Section 6: Hidden Assumptions ==================== -->
+
+<h2><span class="section-num">VI. 隐藏的假设</span></h2>
+
+<div class="callout callout-blue">
+  <div class="callout-title">假设 #1：Haldane 的代价原则是不可突破的上限</div>
+  <p>
+  木村的整个论证建立在 Haldane 的选择代价公式是正确的这一前提上。在推理图中，这被建模为一个不可质疑的"设定"（setting），而非一个可以被证伪的"主张"（claim）。但事实上，Haldane的代价原则<strong>已经被质疑</strong>：截断选择（truncation selection）、软选择（soft selection）和频率依赖选择都可以降低每次替换的实际代价。如果代价被高估了10倍，那100-1000倍的差距就变成了10-100倍——仍然显著，但论证的力度会减弱。
+  </p>
+  <p style="margin-top: 8px;">
+  这是推理图没有捕捉到的最大漏洞。如果将Haldane的原则改为可以被质疑的主张并赋予 0.7 的先验，所有下游结论的置信度都会进一步降低。
+  </p>
+</div>
+
+<div class="callout callout-blue">
+  <div class="callout-title">假设 #2："中性"和"有选择"是二分法</div>
+  <p>
+  木村把问题框架化为中性 vs 选择的二元对立（通过互斥约束建模）。但后来太田朋子（Ohta, 1973）提出的"几乎中性理论"（nearly neutral theory）表明，许多突变的选择效应非常微弱——它们在小种群中表现为中性（漂变主导），在大种群中表现为有害（选择主导）。木村本人在文中使用了"almost neutral"的措辞，但<strong>没有形式化"几乎中性"和"严格中性"的区别</strong>。如果大多数突变是"几乎中性"而非"严格中性"的，那漂变和选择并非截然对立的两个阵营，而是一个连续谱。
+  </p>
+</div>
+
+<div class="callout callout-blue">
+  <div class="callout-title">假设 #3：编码区速率 = 全基因组速率</div>
+  <p>
+  外推公式隐含地假设编码区的核苷酸替换速率可以代表整个基因组。但这意味着非编码区（占基因组95%以上）以与编码区相似的速率发生替换。1968年人们对非编码DNA几乎一无所知。后来的研究表明，非编码区的替换速率通常<strong>高于</strong>编码区（功能约束更弱），这意味着真实的全基因组替换速率可能比木村的估算更高——实际上这会<em>强化</em>而非削弱他的论证。但在1968年，这个方向是不确定的。
+  </p>
+</div>
+
+<!-- ==================== Section 7: Evidence Gaps ==================== -->
+
+<h2><span class="section-num">VII. 证据缺口</span></h2>
+
+<p>按照对核心结论（中性理论假说）影响力排序：</p>
+
+<div style="margin: 24px 0;">
+
+<div class="callout callout-red">
+  <div class="callout-title">高优先级</div>
+
+  <h3>1. 更多蛋白质家族的替换速率数据</h3>
+  <p>
+  三种蛋白质不够。需要从几十种功能各异的蛋白质获取替换速率，才能让归纳推理真正有说服力。这将直接提升"平均替换速率"（0.70）和"基因组替换速率"（0.39），从而推高所有下游结论。<br/>
+  <strong>影响：</strong>平均速率 0.70 &rarr; 预期 0.85+；基因组速率 0.39 &rarr; 预期 0.55+<br/>
+  <em>（后来几十年的分子钟数据以及全基因组比较已经大量验证了木村的数量级估算。）</em>
+  </p>
+
+  <h3>2. 非编码区域的替换速率</h3>
+  <p>
+  从编码区外推到全基因组是最大的单一瓶颈。直接测量非编码区域的核苷酸替换速率可以绕过这个假设。<br/>
+  <strong>影响：</strong>会消除基因组外推步骤的不确定性，将瓶颈环节的置信度从 0.39 大幅提升。
+  </p>
+</div>
+
+<div class="callout callout-amber">
+  <div class="callout-title">中等优先级</div>
+
+  <h3>3. 直接测量每代每核苷酸突变率</h3>
+  <p>
+  用亲子全基因组测序取代Watson的间接估算（10倍不确定区间）。这将使"哺乳动物每代突变数"的置信度从 0.36 显著提升。<br/>
+  <strong>影响：</strong>"遗传漂变重要性"（0.39）的第二条支持链会被大幅强化。
+  </p>
+
+  <h3>4. 多物种杂合度的定量检验</h3>
+  <p>
+  目前只有果蝇一个物种的杂合度数据与中性预测做了定性比较。用多个物种（已知有效种群大小）定量检验 H<sub>e</sub> = 4N<sub>e</sub>u/(4N<sub>e</sub>u + 1) 可以提供独立于速率论证的验证。<br/>
+  <strong>影响：</strong>会为中性理论开辟一条不依赖基因组外推的证据线。
+  </p>
+</div>
+
+<div class="callout callout-green">
+  <div class="callout-title">低优先级（理论改进）</div>
+
+  <h3>5. 在替代选择模型下重新评估Haldane的代价</h3>
+  <p>将截断选择、软选择等模型下的选择代价形式化为可检验的主张，而非不可质疑的背景设定。</p>
+
+  <h3>6. 区分"严格中性"和"几乎中性"</h3>
+  <p>形式化适应度效应阈值：多小的选择系数算"中性"？这为后来的太田（Ohta）几乎中性理论奠定基础。</p>
+
+  <h3>7. 区分同义替换和非同义替换</h3>
+  <p>编码区中，同义替换（不改变氨基酸）应比非同义替换更接近中性预测。这个区分在1968年的数据精度下无法实现，但后来成为分子进化分析的核心工具。</p>
+</div>
+
+</div>
+
+<!-- ==================== Section 8: Recommendation ==================== -->
+
+<h2><span class="section-num">VIII. 审稿建议</span></h2>
+
+<div class="recommendation">
+  <h3>综合评价：接受，需大幅修改（Major Revision）</h3>
+  <p>
+  本文提出了一个深刻的理论洞见：从蛋白质比较数据推算的分子进化速率远超自然选择的理论极限，因此大多数核苷酸替换可能是中性的。核心的溯因推理是有力的——中性理论对替换速率的预测完美匹配观测，而选择论的预测低了100-1000倍（比较判定置信度 1.0）。k = u 公式的推导（0.67）数学上是严格的。三种独立蛋白质的归纳给出了一致的数量级（0.70）。
+  </p>
+  <p style="margin-top: 12px;">
+  然而，论证链条太长、数据基础太窄，导致核心结论的置信度偏低。中性理论假说的置信度仅为 0.22——不是因为逻辑不对，而是因为从三种蛋白质到整个基因组的多步外推中，每一步的不确定性都在累乘。
+  </p>
+
+  <h3 style="margin-top: 20px;">要求修改的三个方面：</h3>
+  <ol>
+    <li><strong>讨论基因组外推的局限性。</strong>明确说明从三种编码蛋白质外推到整个基因组（包括95%以上的非编码区域）所涉及的假设和不确定性。建议提供上下界估算，而非单一的"每两年一次"数字。</li>
+    <li><strong>将Haldane的选择代价讨论为可争议的前提。</strong>文章将其视为不可质疑的上限，但截断选择和软选择模型已被提出。需要讨论：如果代价上限被放松10倍，论证是否仍然成立？</li>
+    <li><strong>量化"几乎中性"的含义。</strong>文章使用"almost neutral"措辞但未定义阈值。需要明确：选择系数低到什么程度时，遗传漂变才能主导该突变的命运？这取决于有效种群大小（|s| &lt; 1/(2N<sub>e</sub>)），应当明确讨论。</li>
+  </ol>
+
+  <h3 style="margin-top: 20px;">怎样能让中性理论假说的置信度超过 0.8？</h3>
+  <p>
+  需要两个方向的突破：(1) <strong>扩大数据基础</strong>——从十几种甚至更多蛋白质家族获取替换速率，并包含非编码区数据，使基因组外推不再是单一瓶颈；(2) <strong>缩短推理链</strong>——通过直接的全基因组比较获得替换速率，绕过"蛋白质 &rarr; 归一化 &rarr; 外推 &rarr; 基因组速率"的四跳链条。这两者合在一起，可以将基因组替换速率从 0.39 推到 0.7+，而这个节点是所有下游结论的关键瓶颈。
+  </p>
+  <p style="margin-top: 12px;">
+  值得注意的是：后来半个世纪的分子进化研究已经大量验证了木村的数量级估算和中性理论的核心预测。1968年的论证之所以置信度"只有"0.22，不是因为木村错了——而是因为他用极其有限的数据做出了极其大胆的推断。这恰恰是这篇文章的历史价值所在：<strong>正确的直觉远远跑在了数据前面。</strong>
+  </p>
+</div>
+
+<p style="text-align: center; margin-top: 56px; color: var(--gray-400); font-size: 0.85em;">
+  Generated from <a href="https://github.com/SiliconEinstein/Gaia" style="color: var(--gray-400);">Gaia</a> reasoning graph formalization &middot;
+  <a href="ANALYSIS.md" style="color: var(--gray-400);">Detailed Analysis</a> &middot;
+  <a href="docs/detailed-reasoning.md" style="color: var(--gray-400);">Per-module Reasoning Graphs</a>
+</p>
+
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'neutral', flowchart: { rankSpacing: 60, nodeSpacing: 20 } });
+</script>
+</body>
+</html>

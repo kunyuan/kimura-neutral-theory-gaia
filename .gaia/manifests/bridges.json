@@ -1,0 +1,7 @@
+{
+  "bridges": [],
+  "ir_hash": "sha256:109eb7610f037e73f0dfd79e2d74504a92ff52507ab2adce498dd0bba3185d89",
+  "manifest_schema_version": 1,
+  "package": "kimura-neutral-theory",
+  "version": "0.1.0"
+}

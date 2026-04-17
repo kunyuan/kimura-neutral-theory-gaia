@@ -1,0 +1,981 @@
+{
+  "ir_hash": "sha256:109eb7610f037e73f0dfd79e2d74504a92ff52507ab2adce498dd0bba3185d89",
+  "knowledges": [
+    {
+      "content": "The haploid genome of mammals contains approximately $4 \\times 10^9$ nucleotide pairs.",
+      "content_hash": "3ce4a96a233fb420f5467b5d8311b2f129e3d14c56c700c01fe480afd624a5f2",
+      "declaration_index": 0,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::mammalian_genome_size",
+      "label": "mammalian_genome_size",
+      "module": "motivation",
+      "parameters": [],
+      "title": "Mammalian haploid genome size",
+      "type": "setting"
+    },
+    {
+      "content": "Each amino acid is encoded by a triplet of three nucleotides (a codon) in the genetic code.",
+      "content_hash": "ea93dbc3a0b09c31300d3064343bb635962dd058f92b7dd6fea0b820610212a1",
+      "declaration_index": 1,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::genetic_code_triplet",
+      "label": "genetic_code_triplet",
+      "module": "motivation",
+      "parameters": [],
+      "title": "Triplet genetic code",
+      "type": "setting"
+    },
+    {
+      "content": "Haldane (1957) showed that natural selection imposes a 'cost' on a population undergoing gene substitution: each substitution by natural selection requires a certain number of selective deaths (genetic deaths). This limits the rate at which gene substitutions can occur by natural selection to roughly one substitution every 300 generations.",
+      "content_hash": "4e929d1dde5c1a545afbfbaf3efadc0a057f631a649629646616448912d948fc",
+      "declaration_index": 2,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::haldane_cost_principle",
+      "label": "haldane_cost_principle",
+      "module": "motivation",
+      "parameters": [],
+      "title": "Haldane's cost of natural selection",
+      "type": "setting"
+    },
+    {
+      "content": "Can the observed rate of molecular evolution (nucleotide substitutions) be explained by natural selection alone, or must most substitutions be selectively neutral?",
+      "content_hash": "7f47144ae90baea0e6da82756f3eb7e919a3830f332879f1f2c4c8ffeab7fba0",
+      "declaration_index": 3,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::research_question",
+      "label": "research_question",
+      "module": "motivation",
+      "parameters": [],
+      "title": "Core question: selection vs neutrality",
+      "type": "question"
+    },
+    {
+      "content": "Comparative studies of haemoglobin molecules among different groups of mammals suggest that amino-acid substitution has taken place roughly at the rate of one amino-acid change in $10^7$ years for a chain consisting of about 140 amino acids. For example, by comparing the $\\alpha$ and $\\beta$ chains of man with those of horse, pig, cattle and rabbit, the figure of one amino-acid change in $7 \\times 10^6$ years was obtained (Zuckerkandl and Pauling, 1965).",
+      "content_hash": "4f4ed951ca5b2427704d2a9eff6c0d54cda6be50bbeb1b13137ab7b3c7c2d4b0",
+      "declaration_index": 4,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::haemoglobin_rate",
+      "label": "haemoglobin_rate",
+      "metadata": {
+        "source": "artifacts/paper.pdf, p.624"
+      },
+      "module": "motivation",
+      "parameters": [],
+      "title": "Haemoglobin amino-acid substitution rate",
+      "type": "claim"
+    },
+    {
+      "content": "The rate of amino-acid substitution estimated by comparing gorilla and human cytochrome c (a chain of about 100 amino acids) turned out to be approximately one replacement in $4.5 \\times 10^7$ years.",
+      "content_hash": "517bb13ffad10158f87555228fd334e9268ddef84bc2cdf4076ce8f57c121b13",
+      "declaration_index": 5,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::cytochrome_c_rate",
+      "label": "cytochrome_c_rate",
+      "metadata": {
+        "source": "artifacts/paper.pdf, p.625"
+      },
+      "module": "motivation",
+      "parameters": [],
+      "title": "Cytochrome c substitution rate",
+      "type": "claim"
+    },
+    {
+      "content": "Comparing triosephosphate dehydrogenase of rabbit with that of other species yields a figure of at least one amino-acid substitution for every $2.5 \\times 10^7$ years for chains of about 1,110 amino acids. This figure is roughly equivalent to the rate of one amino-acid substitution in $2.8 \\times 10^7$ years for a chain consisting of 100 amino acids.",
+      "content_hash": "4709683381bb81cb9ebd43f3d364ba2c087c437b58c8a8f82eea9ccd33548527",
+      "declaration_index": 6,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::triosephosphate_rate",
+      "label": "triosephosphate_rate",
+      "metadata": {
+        "source": "artifacts/paper.pdf, p.625"
+      },
+      "module": "motivation",
+      "parameters": [],
+      "title": "Triosephosphate dehydrogenase substitution rate",
+      "type": "claim"
+    },
+    {
+      "content": "Kimura estimated that the DNA content in terms of nucleotide pairs is at most a few per cent of the total for higher organisms. Taking the equivalent of about $10^7$ nucleotide pairs as coding for amino acids (a polypeptide chain of 100 amino acids corresponds to 300 nucleotide pairs), the evolutionary rate for the coding region appears to be very low for cytochrome c, but amounts to a very high rate for the entire genome when extrapolated.",
+      "content_hash": "ba91ec2b5f7cd4416594cfdba80f3e3fa4ffdf2270a3e9268f6d9dbecd02a223",
+      "declaration_index": 7,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::dna_content_coding_fraction",
+      "label": "dna_content_coding_fraction",
+      "metadata": {
+        "source": "artifacts/paper.pdf, p.625"
+      },
+      "module": "motivation",
+      "parameters": [],
+      "title": "DNA coding fraction estimate",
+      "type": "claim"
+    },
+    {
+      "content": "For mammals, the average generation time is on the order of years (e.g., roughly 1 year for small mammals, longer for large mammals). Kimura uses an approximate figure for illustrative calculation.",
+      "content_hash": "7408a9588d36494eea8f0eff37f56c2089f3430be8bd96e7562fac108f7d0a00",
+      "declaration_index": 0,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::mammalian_generation_time",
+      "label": "mammalian_generation_time",
+      "module": "s2_rate_calculation",
+      "parameters": [],
+      "title": "Mammalian generation time",
+      "type": "setting"
+    },
+    {
+      "content": "Averaging figures for haemoglobin, cytochrome c, and triosephosphate dehydrogenase gives an evolutionary rate of approximately one amino-acid substitution in $28 \\times 10^6$ years (i.e., $2.8 \\times 10^7$ years) for a polypeptide chain of 100 amino acids.",
+      "content_hash": "cffbe744c75d1a2c6d8a33ba61a2d44da8b299371a375561ddb13b0c64bec2a2",
+      "declaration_index": 1,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::normalized_aa_rate",
+      "label": "normalized_aa_rate",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "cytochrome_c_rate",
+              "haemoglobin_rate",
+              "triosephosphate_rate"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.625"
+      },
+      "module": "s2_rate_calculation",
+      "parameters": [],
+      "title": "Averaged amino-acid substitution rate across proteins",
+      "type": "claim"
+    },
+    {
+      "content": "Extrapolating from the averaged amino-acid substitution rate to the whole genome, and noting that a polypeptide of 100 amino acids is coded by 300 nucleotide pairs, the rate of nucleotide substitution per genome per year is estimated as:\n\n$$k = \\frac{1}{2.8 \\times 10^7} \\times \\frac{4 \\times 10^9}{3 \\times 10^2} \\approx \\frac{1}{2}$$\n\nThat is, approximately one nucleotide pair substitution in the population every 2 years, or equivalently about one substitution every 1.8 years across the entire mammalian genome.",
+      "content_hash": "f038afd3760c3d34f22bdaf5c01e2a1b27bd42af3bb118acaa3c4b1d34f7537d",
+      "declaration_index": 2,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::genome_substitution_rate",
+      "label": "genome_substitution_rate",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "normalized_aa_rate"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.625"
+      },
+      "module": "s2_rate_calculation",
+      "parameters": [],
+      "title": "Genome-wide nucleotide substitution rate (~1 per 2 yr)",
+      "type": "claim"
+    },
+    {
+      "content": "If we assume that the cost of natural selection per generation is about 0.1 (Haldane, 1957), and that a new allele is substituted by natural selection roughly every 300 generations, then for mammals with approximately $4 \\times 10^9$ nucleotide pairs and generation times of a few years, the total number of substitutions attributable to selection would be far fewer than one per two years. Haldane's formula gives approximately one gene substitution every 300 generations. The actual rate of nucleotide substitution estimated from protein data is roughly one substitution every 2 years per genome, which is vastly higher than the selection limit.",
+      "content_hash": "ce6805df7fe98a8e94a4f59147723f87e8743fc4f945129a5e71087686830a91",
+      "declaration_index": 3,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::haldane_limit_for_mammals",
+      "label": "haldane_limit_for_mammals",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "genome_substitution_rate"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.625"
+      },
+      "module": "s2_rate_calculation",
+      "parameters": [],
+      "title": "Haldane's cost limits substitution rate far below observed rate",
+      "type": "claim"
+    },
+    {
+      "content": "The observed rate of nucleotide substitution (approximately one per two years per mammalian genome) is so high that it cannot be accounted for by natural selection alone. Haldane's cost of natural selection limits the rate of gene substitution by positive selection to roughly one every 300 generations. The observed molecular substitution rate is 100-1,000 times higher than this limit. Therefore, most nucleotide substitutions in evolution must not have been driven by positive natural selection.",
+      "content_hash": "cf1166e86396904d371d51b2ca031814881a3b61c91cd2fa9d0013a2e6fd0913",
+      "declaration_index": 4,
+      "exported": true,
+      "id": "github:kimura_neutral_theory::selection_cannot_explain_rate",
+      "label": "selection_cannot_explain_rate",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "genome_substitution_rate",
+              "haldane_limit_for_mammals"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.625"
+      },
+      "module": "s2_rate_calculation",
+      "parameters": [],
+      "title": "Selection alone cannot explain the observed substitution rate",
+      "type": "claim"
+    },
+    {
+      "content": "Are observations independent? Do they support the same law?",
+      "content_hash": "36cff940124e21b8b39010b74e17da94c7ab9bd0761afb017b63be334a3f7876",
+      "declaration_index": 5,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::_anon_000",
+      "metadata": {
+        "generated": true,
+        "helper_kind": "composition_validity",
+        "warrant": "Haemoglobin and cytochrome c are independent protein families."
+      },
+      "module": "s2_rate_calculation",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "Are observations independent? Do they support the same law?",
+      "content_hash": "36cff940124e21b8b39010b74e17da94c7ab9bd0761afb017b63be334a3f7876",
+      "declaration_index": 6,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::_anon_001",
+      "metadata": {
+        "generated": true,
+        "helper_kind": "composition_validity",
+        "warrant": "Triosephosphate dehydrogenase is independent of haemoglobin and cytochrome c."
+      },
+      "module": "s2_rate_calculation",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "Most mutations produced by nucleotide replacement are almost neutral in natural selection, meaning they have so little effect on the fitness of the organism that their fate in the population is determined primarily by random genetic drift rather than by selection. The very high rate of nucleotide substitution observed at the molecular level can be explained if most substitutions are the result of random fixation of selectively neutral or nearly neutral mutations.",
+      "content_hash": "60ba4f49f9555b40cf750449fd1d367a88a582788de821f72d2f1a2c29d19ed6",
+      "declaration_index": 0,
+      "exported": true,
+      "id": "github:kimura_neutral_theory::neutral_theory_hypothesis",
+      "label": "neutral_theory_hypothesis",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "selection_cannot_explain_rate"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.625"
+      },
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "title": "Neutral theory: most molecular substitutions are selectively neutral",
+      "type": "claim"
+    },
+    {
+      "content": "The conventional (selectionist) view holds that most molecular evolution is driven by positive natural selection: each amino-acid or nucleotide substitution that becomes fixed in a population does so because it confers a selective advantage. Under this view, the substitution rate is limited by Haldane's cost of natural selection.",
+      "content_hash": "502bf0f1ddd5de8d2c103dcb3c236eeeea2ea0850047f822db8520ac2c10b828",
+      "declaration_index": 1,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::selectionist_view",
+      "label": "selectionist_view",
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "title": "Selectionist view: substitutions driven by positive selection",
+      "type": "claim"
+    },
+    {
+      "content": "not_both_true(A, B)",
+      "content_hash": "468923920550aff97ac2349f7d0a5b32e6560066b45861bf367db7f40e8649a7",
+      "declaration_index": 2,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::not_both_views",
+      "label": "not_both_views",
+      "metadata": {
+        "helper_kind": "contradiction_result",
+        "prior": 0.95
+      },
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "For neutral mutations, the rate of mutant substitution in the population (the rate at which new alleles become fixed) is:\n\n$$k = u$$\n\nwhere $u$ is the mutation rate per gamete per generation. This result holds because the probability that a new neutral mutation eventually becomes fixed in a population of effective size $N_e$ is $1/(2N_e)$, and the number of new neutral mutations appearing each generation is $2N_e u$. Multiplying these: $k = 2N_e u \\times \\frac{1}{2N_e} = u$. This is independent of population size.",
+      "content_hash": "0237839387e4efb0f7387b87b63fdb5e845085f82fa03daae5eb084500408f5c",
+      "declaration_index": 3,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::neutral_substitution_formula",
+      "label": "neutral_substitution_formula",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "neutral_fixation_probability"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.625, formula (1)"
+      },
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "title": "Neutral substitution rate equals mutation rate (k = u)",
+      "type": "claim"
+    },
+    {
+      "content": "For a selectively neutral mutation in a diploid population of effective size $N_e$, the probability of eventual fixation is $p = 1/(2N_e)$, which equals the initial frequency of the new allele if it appears as a single copy.",
+      "content_hash": "09a886d08eedd3f80039d024b9076d1a44f009c2a4f0a54bb781acd2af44c45b",
+      "declaration_index": 4,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::neutral_fixation_probability",
+      "label": "neutral_fixation_probability",
+      "metadata": {
+        "source": "artifacts/paper.pdf, p.625"
+      },
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "title": "Fixation probability of a neutral allele is 1/(2Ne)",
+      "type": "claim"
+    },
+    {
+      "content": "Kimura and Crow (1964) showed that for neutral mutations, the probability that a randomly chosen individual is homozygous at a locus is $1/(4N_e u + 1)$, where $N_e$ is the effective population number and $u$ is the mutation rate per locus per generation. Therefore, the expected heterozygosity is:\n\n$$H_e = \\frac{4 N_e u}{4 N_e u + 1}$$\n\nTo attain a heterozygosity of at least $H_e = 0.12$, it is necessary that $N_e \\geq 2{,}300$. For a higher heterozygosity such as $H_e = 0.35$, $N_e$ must be about $8{,}000$.",
+      "content_hash": "82ddd13e86e83706ec4c28a2585e3b7d815fd99c8b69eb517bea5b318f51a155",
+      "declaration_index": 5,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::heterozygosity_formula",
+      "label": "heterozygosity_formula",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "neutral_theory_hypothesis"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.626"
+      },
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "title": "Neutral heterozygosity depends on 4*Ne*u (Kimura-Crow 1964)",
+      "type": "claim"
+    },
+    {
+      "content": "For Drosophila, with migration between subgroups, heterozygosity of 35 per cent may be attained even if the effective population size $N_e$ is much smaller for each subgroup. This is consistent with the neutral theory's prediction that heterozygosity is maintained by the balance between neutral mutation and random genetic drift.",
+      "content_hash": "047cb90c5b838ce2dbe9cda0c1076678196ba5ee0e85fdeb68f3ccd86c0df8e2",
+      "declaration_index": 6,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::drosophila_heterozygosity",
+      "label": "drosophila_heterozygosity",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "heterozygosity_formula"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.626"
+      },
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "title": "Drosophila heterozygosity consistent with neutral prediction",
+      "type": "claim"
+    },
+    {
+      "content": "Under the neutral theory, the substitution rate equals the mutation rate ($k = u$), which for mammals with ~$4 \\times 10^9$ nucleotide pairs and error rates of $10^{-8}$ to $10^{-9}$ per nucleotide per replication, predicts a genome-wide substitution rate on the order of one per few years. This matches the observed rate of ~1 substitution per 2 years.",
+      "content_hash": "bf8343fd525d189bc9e177322df6bf0048be1f09d2fe0282d349327ac20191c8",
+      "declaration_index": 7,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::neutral_predicts_rate",
+      "label": "neutral_predicts_rate",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "neutral_substitution_formula",
+              "neutral_theory_hypothesis"
+            ]
+          }
+        }
+      },
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "title": "Neutral theory predicts the observed high substitution rate",
+      "type": "claim"
+    },
+    {
+      "content": "Under the selectionist view, the substitution rate is limited by Haldane's cost of natural selection to roughly one gene substitution every 300 generations. For mammals, this predicts a far lower rate than the observed ~1 substitution per 2 years, a discrepancy of 2-3 orders of magnitude.",
+      "content_hash": "10c2f4ac5e392c5b501830853ad7afecdda8dd65b7e7f571a2260fbf25537ae6",
+      "declaration_index": 8,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::selectionist_predicts_rate",
+      "label": "selectionist_predicts_rate",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "selectionist_view"
+            ]
+          }
+        }
+      },
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "title": "Selectionist view predicts a much lower substitution rate",
+      "type": "claim"
+    },
+    {
+      "content": "compare(Under the neutral theory, the substitution rate equals the mutation rate ($k = u$), which for mammals with ~$4 \\times 10^9$ nucleotide pairs and error rates of $10^{-8}$ to $10^{-9}$ per nucleotide per replication, predicts a genome-wide substitution rate on the order of one per few years. This matches the observed rate of ~1 substitution per 2 years., Under the selectionist view, the substitution rate is limited by Haldane's cost of natural selection to roughly one gene substitution every 300 generations. For mammals, this predicts a far lower rate than the observed ~1 substitution per 2 years, a discrepancy of 2-3 orders of magnitude., Extrapolating from the averaged amino-acid substitution rate to the whole genome, and noting that a polypeptide of 100 amino acids is coded by 300 nucleotide pairs, the rate of nucleotide substitution per genome per year is estimated as:\n\n$$k = \\frac{1}{2.8 \\times 10^7} \\times \\frac{4 \\times 10^9}{3 \\times 10^2} \\approx \\frac{1}{2}$$\n\nThat is, approximately one nucleotide pair substitution in the population every 2 years, or equivalently about one substitution every 1.8 years across the entire mammalian genome.)",
+      "content_hash": "e5166cf7e1d7039ea8df2244a871ffa2eff3cf00755ee31e0d269e1731c7b24f",
+      "declaration_index": 9,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::_anon_002",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "genome_substitution_rate",
+              "neutral_predicts_rate",
+              "selectionist_predicts_rate"
+            ]
+          }
+        },
+        "generated": true,
+        "helper_kind": "comparison_claim"
+      },
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "abduction_validity(support, support, compare)",
+      "content_hash": "4ccad61dc008bbcf2f30f65bc920cc26f35586acf9ec7ee57972c8bcd78f9d5c",
+      "declaration_index": 10,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::_anon_003",
+      "metadata": {
+        "generated": true,
+        "helper_kind": "composition_validity",
+        "warrant": "Both the neutral theory and the selectionist view attempt to explain the observed genome-wide nucleotide substitution rate. The neutral theory correctly predicts the high rate via $k = u$, while the selectionist view predicts a rate orders of magnitude too low due to Haldane's cost constraint."
+      },
+      "module": "s3_neutral_theory",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "From a consideration of the average energy of hydrogen bonds and from information on mutation of rIIA gene in phage T4, Watson (1965) obtained $10^{-8}$ to $10^{-9}$ as the average probability of error in the insertion of a new nucleotide during DNA replication.",
+      "content_hash": "63e7f62218b9dbb5d6115f3a8983f29c69810e98b10cb848e60da94966d1ac81",
+      "declaration_index": 0,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::watson_mutation_rate",
+      "label": "watson_mutation_rate",
+      "metadata": {
+        "source": "artifacts/paper.pdf, p.626"
+      },
+      "module": "s4_mutation_rates",
+      "parameters": [],
+      "title": "Watson's estimate of nucleotide misincorporation rate",
+      "type": "claim"
+    },
+    {
+      "content": "In man, the number of cell divisions along the germ line from the fertilized egg to a gamete is roughly 50.",
+      "content_hash": "340ebe4e1719f98f97cdcf37eda913582c1741f8eedae05a7b4beb778202166e",
+      "declaration_index": 1,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::cell_divisions_to_gamete",
+      "label": "cell_divisions_to_gamete",
+      "metadata": {
+        "source": "artifacts/paper.pdf, p.626"
+      },
+      "module": "s4_mutation_rates",
+      "parameters": [],
+      "title": "~50 cell divisions from zygote to gamete in humans",
+      "type": "claim"
+    },
+    {
+      "content": "The rate of mutation resulting from base replacement is estimated as $50 \\times 10^{-8}$ to $50 \\times 10^{-9}$ per nucleotide pair per generation (i.e., $5 \\times 10^{-7}$ to $5 \\times 10^{-8}$). With approximately $4 \\times 10^9$ nucleotide pairs in the mammalian haploid genome, the total number of mutations resulting from base replacement per generation may amount to $200$ to $2{,}000$.",
+      "content_hash": "a5dedb382d57c705f5c62d14924303c9b9793f7d44e5fea5b4e70f623c8f5ed8",
+      "declaration_index": 2,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::mammalian_mutation_rate_per_nucleotide",
+      "label": "mammalian_mutation_rate_per_nucleotide",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "cell_divisions_to_gamete",
+              "watson_mutation_rate"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.626"
+      },
+      "module": "s4_mutation_rates",
+      "parameters": [],
+      "title": "Total base-replacement mutations per generation: 200-2000",
+      "type": "claim"
+    },
+    {
+      "content": "The mutation rate per nucleotide pair per generation in Drosophila is roughly ten times as high as in man (i.e., $u \\approx 1.5 \\times 10^{-7}$ rather than $u \\approx 1.5 \\times 10^{-8}$). Another consideration allows the supposition that $u \\approx 1.5 \\times 10^{-7}$ is probably appropriate for the neutral mutation rate of a cistron in Drosophila.",
+      "content_hash": "e76d49c0f107ccc39ea37b0243c2624babe7b6954c7b9c88648e1d4122e23edf",
+      "declaration_index": 3,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::drosophila_mutation_rate",
+      "label": "drosophila_mutation_rate",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "mammalian_mutation_rate_per_nucleotide"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.626"
+      },
+      "module": "s4_mutation_rates",
+      "parameters": [],
+      "title": "Drosophila neutral mutation rate per nucleotide",
+      "type": "claim"
+    },
+    {
+      "content": "The estimated total mutation rate per generation (200-2,000 base-replacement mutations) is 100-1,000 times larger than the rate of approximately 2 substitutions per generation allowed by Haldane's natural selection cost. This is consistent with the neutral theory's prediction that the mutation rate per nucleotide per generation directly determines the substitution rate ($k = u$), because neutral mutations fix at a rate equal to the mutation rate regardless of population size.",
+      "content_hash": "7585eeffa989dbe4e5ed8343896c8eb0f417831782db17a9d1e6727887cdff74",
+      "declaration_index": 4,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::neutral_rate_consistency",
+      "label": "neutral_rate_consistency",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "mammalian_mutation_rate_per_nucleotide",
+              "neutral_substitution_formula"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.626"
+      },
+      "module": "s4_mutation_rates",
+      "parameters": [],
+      "title": "Mutation rate is 100-1000x Haldane's limit, consistent with neutral theory",
+      "type": "claim"
+    },
+    {
+      "content": "If the main conclusion is correct (that neutral or nearly neutral mutations are being produced in each generation at a much higher rate than has been considered before), then we must recognize the great importance of random genetic drift due to finite population number in forming the genetic structure of biological populations. The significance of random genetic drift has been depreciated during the past decade, influenced by the opinion that almost no mutations are neutral and that population sizes are usually so large that random sampling of gametes should be negligible.",
+      "content_hash": "9d070cbd08b8211c0dbd143d16c5e8be148f731e715d70199804ff8c26bc00a9",
+      "declaration_index": 0,
+      "exported": true,
+      "id": "github:kimura_neutral_theory::genetic_drift_importance",
+      "label": "genetic_drift_importance",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "neutral_rate_consistency",
+              "neutral_theory_hypothesis"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.626"
+      },
+      "module": "s5_conclusions",
+      "parameters": [],
+      "title": "Random genetic drift must be recognized as important",
+      "type": "claim"
+    },
+    {
+      "content": "To emphasize the founder principle but deny the importance of random genetic drift due to finite population number is, in Kimura's opinion, rather similar to assuming a great flood to explain the formation of deep valleys but rejecting a gradual but long lasting process of erosion by water as insufficient to produce such a result.",
+      "content_hash": "b0aa6727c3bc3fcbc292ccd373e8a7b4a7ee7d1aa1c25df181c2bc24ddf4b65b",
+      "declaration_index": 1,
+      "exported": false,
+      "id": "github:kimura_neutral_theory::founder_principle_inadequate",
+      "label": "founder_principle_inadequate",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "genetic_drift_importance"
+            ]
+          }
+        },
+        "source": "artifacts/paper.pdf, p.626"
+      },
+      "module": "s5_conclusions",
+      "parameters": [],
+      "title": "Denying drift while accepting founder effect is inconsistent",
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:kimura_neutral_theory::neutral_fixation_probability,github:kimura_neutral_theory::neutral_substitution_formula)",
+      "content_hash": "a4cf82de695510cfe45b898c12242d0a624778ffab5a18bde792733bd126e392",
+      "exported": false,
+      "id": "github:kimura_neutral_theory::__implication_result_c95ed4e9",
+      "label": "__implication_result_c95ed4e9",
+      "metadata": {
+        "canonical_name": "implies(github:kimura_neutral_theory::neutral_fixation_probability,github:kimura_neutral_theory::neutral_substitution_formula)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_6fd91478a82b74c7",
+        "owning_strategy_type": "deduction",
+        "prior": 0.99,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    }
+  ],
+  "module_order": [
+    "motivation",
+    "s2_rate_calculation",
+    "s3_neutral_theory",
+    "s4_mutation_rates",
+    "s5_conclusions"
+  ],
+  "module_titles": {
+    "motivation": "Introduction: Observed Rates of Molecular Evolution",
+    "s2_rate_calculation": "Substitution Rate Calculation and Haldane's Cost Argument",
+    "s3_neutral_theory": "The Neutral Theory: Hypothesis and Population Genetics",
+    "s4_mutation_rates": "Mutation Rate Estimation and Comparison with Molecular Rates",
+    "s5_conclusions": "Conclusions: Implications for Genetic Drift and Population Genetics"
+  },
+  "namespace": "github",
+  "operators": [
+    {
+      "conclusion": "github:kimura_neutral_theory::not_both_views",
+      "metadata": {
+        "reason": "If most substitutions are selectively neutral (neutral theory), then most substitutions are NOT driven by positive natural selection (selectionist view), and vice versa. These two explanations for the dominant mode of molecular evolution are mutually exclusive."
+      },
+      "operator": "contradiction",
+      "operator_id": "lco_c5f8607146100c2e",
+      "scope": "local",
+      "variables": [
+        "github:kimura_neutral_theory::neutral_theory_hypothesis",
+        "github:kimura_neutral_theory::selectionist_view"
+      ]
+    }
+  ],
+  "package_name": "kimura_neutral_theory",
+  "scope": "local",
+  "strategies": [
+    {
+      "conclusion": "github:kimura_neutral_theory::normalized_aa_rate",
+      "metadata": {
+        "prior": 0.9,
+        "reason": "@haemoglobin_rate shows ~1 amino-acid change per $7 \\times 10^6$ yr for a 140-aa chain, which normalizes to approximately one substitution per $10^7$ yr for a 100-aa chain. This is one data point supporting the averaged rate of ~1 per $2.8 \\times 10^7$ yr."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::haemoglobin_rate"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_dd74ccc975024ece",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::normalized_aa_rate",
+      "metadata": {
+        "prior": 0.9,
+        "reason": "@cytochrome_c_rate shows ~1 substitution per $4.5 \\times 10^7$ yr for a ~100-aa chain. This is a second independent protein comparison supporting the averaged rate."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::cytochrome_c_rate"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_1128fd750571b813",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::normalized_aa_rate",
+      "metadata": {
+        "prior": 0.9,
+        "reason": "@triosephosphate_rate shows ~1 substitution per $2.8 \\times 10^7$ yr for 100 aa. This is a third independent protein comparison supporting the averaged rate."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::triosephosphate_rate"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_69021015ffbb94c1",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::normalized_aa_rate",
+      "metadata": {
+        "reason": "Haemoglobin and cytochrome c are independent protein families."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::haemoglobin_rate",
+        "github:kimura_neutral_theory::cytochrome_c_rate"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_b6560a30ffd2b2c5",
+      "sub_strategies": [
+        "lcs_dd74ccc975024ece",
+        "lcs_1128fd750571b813"
+      ],
+      "type": "induction"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::normalized_aa_rate",
+      "metadata": {
+        "reason": "Triosephosphate dehydrogenase is independent of haemoglobin and cytochrome c."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::haemoglobin_rate",
+        "github:kimura_neutral_theory::cytochrome_c_rate",
+        "github:kimura_neutral_theory::triosephosphate_rate"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_9a9d82984c27f98c",
+      "sub_strategies": [
+        "lcs_b6560a30ffd2b2c5",
+        "lcs_69021015ffbb94c1"
+      ],
+      "type": "induction"
+    },
+    {
+      "background": [
+        "github:kimura_neutral_theory::mammalian_genome_size",
+        "github:kimura_neutral_theory::genetic_code_triplet"
+      ],
+      "conclusion": "github:kimura_neutral_theory::genome_substitution_rate",
+      "metadata": {
+        "prior": 0.8,
+        "reason": "From @normalized_aa_rate (one aa substitution per $2.8 \\times 10^7$ yr per 100 aa chain), the genome-wide nucleotide substitution rate is obtained by: (1) converting amino-acid rate to nucleotide rate (each aa = 3 nucleotides), (2) scaling from the coding region of one polypeptide to the whole genome ($4 \\times 10^9$ nucleotide pairs). This gives $k \\approx 1/(2.8 \\times 10^7) \\times (4 \\times 10^9)/(3 \\times 10^2) \\approx 0.5$ substitutions per year, or about one substitution every 2 years."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::normalized_aa_rate"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_600ed89aa1b3adf9",
+      "type": "support"
+    },
+    {
+      "background": [
+        "github:kimura_neutral_theory::haldane_cost_principle",
+        "github:kimura_neutral_theory::mammalian_generation_time"
+      ],
+      "conclusion": "github:kimura_neutral_theory::haldane_limit_for_mammals",
+      "metadata": {
+        "prior": 0.9,
+        "reason": "The observed genome-wide substitution rate from @genome_substitution_rate (~1 substitution per 2 years) is compared with Haldane's theoretical limit of ~1 gene substitution per 300 generations. For mammals with generation times of a few years, 300 generations corresponds to hundreds of years. The observed molecular rate is therefore 100-1,000 times higher than what natural selection can sustain according to Haldane's cost argument."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::genome_substitution_rate"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_682cc2cc0c7fc406",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::selection_cannot_explain_rate",
+      "metadata": {
+        "prior": 0.9,
+        "reason": "The genome-wide substitution rate (@genome_substitution_rate) of ~1 per 2 years vastly exceeds the limit imposed by the cost of natural selection (@haldane_limit_for_mammals). Since Haldane's argument sets an upper bound on how many substitutions natural selection can drive per generation, and the observed molecular rate exceeds that bound by 2-3 orders of magnitude, it follows that natural selection alone cannot account for the observed rate of molecular evolution."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::genome_substitution_rate",
+        "github:kimura_neutral_theory::haldane_limit_for_mammals"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_547acd1d46ad1fcf",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::neutral_theory_hypothesis",
+      "metadata": {
+        "prior": 0.9,
+        "reason": "If natural selection alone cannot account for the observed rate of molecular evolution (@selection_cannot_explain_rate), then an alternative mechanism must be responsible. The neutral theory provides this mechanism: random fixation of selectively neutral mutations at a rate equal to the mutation rate (k=u)."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::selection_cannot_explain_rate"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_f0a60f762b6b09c0",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::neutral_substitution_formula",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:kimura_neutral_theory::__implication_result_c95ed4e9",
+            "operator": "implication",
+            "variables": [
+              "github:kimura_neutral_theory::neutral_fixation_probability",
+              "github:kimura_neutral_theory::neutral_substitution_formula"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "deduction",
+        "generated_formal_expr": true,
+        "prior": 0.99,
+        "reason": "Starting from @neutral_fixation_probability ($p = 1/(2N_e)$ for a neutral mutation), the substitution rate is obtained by multiplying the fixation probability by the number of new mutations per generation ($2N_e u$): $k = 2N_e u \\times 1/(2N_e) = u$. The population size cancels, yielding the result that the substitution rate equals the mutation rate."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::neutral_fixation_probability"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_6fd91478a82b74c7",
+      "type": "deduction"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::heterozygosity_formula",
+      "metadata": {
+        "prior": 0.85,
+        "reason": "Under the neutral theory (@neutral_theory_hypothesis), most polymorphism is selectively neutral and maintained by the balance of mutation and drift. Kimura and Crow (1964) derived that for neutral alleles, expected heterozygosity is $H_e = 4N_e u / (4N_e u + 1)$, depending only on the product of effective population size and mutation rate."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::neutral_theory_hypothesis"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_75681a9a7c082974",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::drosophila_heterozygosity",
+      "metadata": {
+        "prior": 0.8,
+        "reason": "The neutral heterozygosity formula (@heterozygosity_formula) predicts that Drosophila populations with moderate effective sizes and subdivision (migration between subgroups) can attain 35% heterozygosity. This is consistent with observed levels of protein polymorphism in Drosophila."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::heterozygosity_formula"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_7179926430550d16",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::neutral_predicts_rate",
+      "metadata": {
+        "prior": 0.9,
+        "reason": "Under @neutral_theory_hypothesis, most substitutions are neutral. The neutral substitution formula (@neutral_substitution_formula) gives $k = u$. Since the per-nucleotide mutation rate times the genome size yields ~1 substitution per few years, the neutral theory naturally predicts the observed high rate."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::neutral_theory_hypothesis",
+        "github:kimura_neutral_theory::neutral_substitution_formula"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_44723a724142bedb",
+      "type": "support"
+    },
+    {
+      "background": [
+        "github:kimura_neutral_theory::selection_cannot_explain_rate"
+      ],
+      "conclusion": "github:kimura_neutral_theory::selectionist_predicts_rate",
+      "metadata": {
+        "prior": 0.5,
+        "reason": "Under @selectionist_view, substitutions require positive selection. Haldane's cost argument limits positive selection to ~1 substitution per 300 generations. For mammals this is far below the observed rate of ~1 per 2 years."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::selectionist_view"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_7757c48210b256d0",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::_anon_002",
+      "metadata": {
+        "prior": 0.9,
+        "reason": "The observed genome-wide substitution rate is ~1 per 2 years (@genome_substitution_rate). The neutral theory predicts a rate on this order (@neutral_predicts_rate), while the selectionist view predicts a rate 100-1,000x lower (@selectionist_predicts_rate). The neutral theory's prediction matches the observation far better."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::neutral_predicts_rate",
+        "github:kimura_neutral_theory::selectionist_predicts_rate",
+        "github:kimura_neutral_theory::genome_substitution_rate"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_0e19ba91119ff9bb",
+      "type": "compare"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::_anon_002",
+      "metadata": {
+        "reason": "Both the neutral theory and the selectionist view attempt to explain the observed genome-wide nucleotide substitution rate. The neutral theory correctly predicts the high rate via $k = u$, while the selectionist view predicts a rate orders of magnitude too low due to Haldane's cost constraint."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::neutral_theory_hypothesis",
+        "github:kimura_neutral_theory::neutral_substitution_formula",
+        "github:kimura_neutral_theory::selectionist_view",
+        "github:kimura_neutral_theory::neutral_predicts_rate",
+        "github:kimura_neutral_theory::selectionist_predicts_rate",
+        "github:kimura_neutral_theory::genome_substitution_rate"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_87c967544e587c9e",
+      "sub_strategies": [
+        "lcs_44723a724142bedb",
+        "lcs_7757c48210b256d0",
+        "lcs_0e19ba91119ff9bb"
+      ],
+      "type": "abduction"
+    },
+    {
+      "background": [
+        "github:kimura_neutral_theory::mammalian_genome_size"
+      ],
+      "conclusion": "github:kimura_neutral_theory::mammalian_mutation_rate_per_nucleotide",
+      "metadata": {
+        "prior": 0.8,
+        "reason": "Watson's estimate of nucleotide misincorporation rate (@watson_mutation_rate) is $10^{-8}$ to $10^{-9}$ per nucleotide per replication. With approximately 50 cell divisions from zygote to gamete (@cell_divisions_to_gamete), the per-nucleotide per-generation mutation rate is $50 \\times 10^{-8}$ to $50 \\times 10^{-9}$. Multiplying by the genome size ($4 \\times 10^9$ nucleotide pairs) yields 200-2,000 total base-replacement mutations per generation."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::watson_mutation_rate",
+        "github:kimura_neutral_theory::cell_divisions_to_gamete"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_497aa0cec32ebf71",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::drosophila_mutation_rate",
+      "metadata": {
+        "prior": 0.75,
+        "reason": "The mutation rate per nucleotide pair per generation in Drosophila is estimated to be roughly ten times as high as in man (@mammalian_mutation_rate_per_nucleotide), because the mutation rate per nucleotide pair per generation in Drosophila is roughly ten times that of man. This gives $u \\approx 1.5 \\times 10^{-7}$ per nucleotide per generation for Drosophila, compared to $u \\approx 1.5 \\times 10^{-8}$ in man."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::mammalian_mutation_rate_per_nucleotide"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_dee1f717ad966e1e",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::neutral_rate_consistency",
+      "metadata": {
+        "prior": 0.85,
+        "reason": "The total mutation rate of 200-2,000 per generation (@mammalian_mutation_rate_per_nucleotide) is 100-1,000 times larger than Haldane's limit of ~2 substitutions per generation by natural selection. However, under the neutral substitution formula (@neutral_substitution_formula, $k = u$), the fixation rate equals the mutation rate regardless of population size. This means the high mutation rate directly predicts a high substitution rate, consistent with the observed molecular evolutionary rate."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::mammalian_mutation_rate_per_nucleotide",
+        "github:kimura_neutral_theory::neutral_substitution_formula"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_79c1a359a03a9fb6",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::genetic_drift_importance",
+      "metadata": {
+        "prior": 0.85,
+        "reason": "If the neutral theory (@neutral_theory_hypothesis) is correct, then neutral mutations are produced at a much higher rate than previously assumed (@neutral_rate_consistency shows 200-2,000 mutations per generation, 100-1,000x above Haldane's limit). Since these neutral mutations fix by random drift, not selection, random genetic drift must be the dominant force shaping molecular evolution and maintaining polymorphism in populations. This contradicts the prevailing view that drift is negligible due to large population sizes."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::neutral_theory_hypothesis",
+        "github:kimura_neutral_theory::neutral_rate_consistency"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_959682ed2344aae0",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:kimura_neutral_theory::founder_principle_inadequate",
+      "metadata": {
+        "prior": 0.9,
+        "reason": "If random genetic drift is important for ongoing molecular evolution (@genetic_drift_importance), then it is logically inconsistent to accept the founder principle (which invokes drift in small founding populations) while simultaneously denying the importance of drift in normal populations of finite size. Both phenomena arise from the same stochastic sampling process."
+      },
+      "premises": [
+        "github:kimura_neutral_theory::genetic_drift_importance"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_166e4816504a82ab",
+      "type": "support"
+    }
+  ]
+}

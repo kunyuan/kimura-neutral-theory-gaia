@@ -1,0 +1,29 @@
+{
+  "exports": [
+    {
+      "content": "If the main conclusion is correct (that neutral or nearly neutral mutations are being produced in each generation at a much higher rate than has been considered before), then we must recognize the great importance of random genetic drift due to finite population number in forming the genetic structure of biological populations. The significance of random genetic drift has been depreciated during the past decade, influenced by the opinion that almost no mutations are neutral and that population sizes are usually so large that random sampling of gametes should be negligible.",
+      "content_hash": "9d070cbd08b8211c0dbd143d16c5e8be148f731e715d70199804ff8c26bc00a9",
+      "label": "genetic_drift_importance",
+      "qid": "github:kimura_neutral_theory::genetic_drift_importance",
+      "type": "claim"
+    },
+    {
+      "content": "Most mutations produced by nucleotide replacement are almost neutral in natural selection, meaning they have so little effect on the fitness of the organism that their fate in the population is determined primarily by random genetic drift rather than by selection. The very high rate of nucleotide substitution observed at the molecular level can be explained if most substitutions are the result of random fixation of selectively neutral or nearly neutral mutations.",
+      "content_hash": "60ba4f49f9555b40cf750449fd1d367a88a582788de821f72d2f1a2c29d19ed6",
+      "label": "neutral_theory_hypothesis",
+      "qid": "github:kimura_neutral_theory::neutral_theory_hypothesis",
+      "type": "claim"
+    },
+    {
+      "content": "The observed rate of nucleotide substitution (approximately one per two years per mammalian genome) is so high that it cannot be accounted for by natural selection alone. Haldane's cost of natural selection limits the rate of gene substitution by positive selection to roughly one every 300 generations. The observed molecular substitution rate is 100-1,000 times higher than this limit. Therefore, most nucleotide substitutions in evolution must not have been driven by positive natural selection.",
+      "content_hash": "cf1166e86396904d371d51b2ca031814881a3b61c91cd2fa9d0013a2e6fd0913",
+      "label": "selection_cannot_explain_rate",
+      "qid": "github:kimura_neutral_theory::selection_cannot_explain_rate",
+      "type": "claim"
+    }
+  ],
+  "ir_hash": "sha256:109eb7610f037e73f0dfd79e2d74504a92ff52507ab2adce498dd0bba3185d89",
+  "manifest_schema_version": 1,
+  "package": "kimura-neutral-theory",
+  "version": "0.1.0"
+}

@@ -1,0 +1,32 @@
+{
+  "package_name": "kimura_neutral_theory",
+  "generated_at": "2026-04-16T10:15:28.246737+00:00",
+  "wiki_pages": [
+    "Home.md",
+    "Module-Root.md",
+    "Module-motivation.md",
+    "Module-s2-rate-calculation.md",
+    "Module-s3-neutral-theory.md",
+    "Module-s4-mutation-rates.md",
+    "Module-s5-conclusions.md",
+    "Inference-Results.md"
+  ],
+  "pages_sections": [
+    "motivation.md",
+    "s2_rate_calculation.md",
+    "s3_neutral_theory.md",
+    "s4_mutation_rates.md",
+    "s5_conclusions.md"
+  ],
+  "assets": [
+    "paper.pdf"
+  ],
+  "exported_conclusions": [
+    "genetic_drift_importance",
+    "neutral_theory_hypothesis",
+    "selection_cannot_explain_rate"
+  ],
+  "total_claims": 28,
+  "total_beliefs": 33,
+  "readme_placeholders": []
+}
