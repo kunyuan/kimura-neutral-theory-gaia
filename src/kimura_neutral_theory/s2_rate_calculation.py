@@ -16,10 +16,11 @@ from .motivation import (
 # === Settings ===
 
 mammalian_generation_time = setting(
-    "For mammals, the average generation time is on the order of years (e.g., roughly "
-    "1 year for small mammals, longer for large mammals). Kimura uses an approximate figure "
-    "for illustrative calculation.",
-    title="Mammalian generation time",
+    "For mammals, the average length of one generation varies by body size: roughly "
+    "1-2 years for small mammals (mice, rabbits) and up to 20-30 years for large mammals "
+    "(humans, elephants). Kimura uses an order-of-magnitude figure of a few years for "
+    "the illustrative calculation comparing molecular rates with Haldane's cost limit.",
+    title="Mammalian generation time (order of years)",
 )
 
 
@@ -47,28 +48,15 @@ genome_substitution_rate = claim(
     metadata={"source": "artifacts/paper.pdf, p.625"},
 )
 
-haldane_limit_for_mammals = claim(
-    "If we assume that the cost of natural selection per generation is about 0.1 "
-    "(Haldane, 1957), and that a new allele is substituted by natural selection roughly "
-    "every 300 generations, then for mammals with approximately $4 \\times 10^9$ nucleotide "
-    "pairs and generation times of a few years, the total number of substitutions attributable "
-    "to selection would be far fewer than one per two years. "
-    "Haldane's formula gives approximately one gene substitution every 300 generations. "
-    "The actual rate of nucleotide substitution estimated from protein data is roughly "
-    "one substitution every 2 years per genome, which is vastly higher than the selection limit.",
-    title="Haldane's cost limits substitution rate far below observed rate",
-    background=[haldane_cost_principle, mammalian_generation_time],
-    metadata={"source": "artifacts/paper.pdf, p.625"},
-)
-
 selection_cannot_explain_rate = claim(
     "The observed rate of nucleotide substitution (approximately one per two years per "
     "mammalian genome) is so high that it cannot be accounted for by natural selection "
-    "alone. Haldane's cost of natural selection limits the rate of gene substitution by "
-    "positive selection to roughly one every 300 generations. The observed molecular "
-    "substitution rate is 100-1,000 times higher than this limit. Therefore, most "
-    "nucleotide substitutions in evolution must not have been driven by positive natural "
-    "selection.",
+    "alone. Haldane (1957) showed that the cost of natural selection limits the rate of "
+    "gene substitution by positive selection to roughly one every 300 generations. For "
+    "mammals with generation times of a few years, 300 generations corresponds to "
+    "hundreds to thousands of years. The observed molecular substitution rate is therefore "
+    "100-1,000 times higher than this limit, meaning most nucleotide substitutions in "
+    "evolution must not have been driven by positive natural selection.",
     title="Selection alone cannot explain the observed substitution rate",
     metadata={"source": "artifacts/paper.pdf, p.625"},
 )
@@ -141,31 +129,18 @@ strat_extrapolate_genome = support(
     background=[mammalian_genome_size, genetic_code_triplet],
 )
 
-strat_haldane_limit = support(
-    [genome_substitution_rate],
-    haldane_limit_for_mammals,
-    reason=(
-        "The observed genome-wide substitution rate from @genome_substitution_rate "
-        "(~1 substitution per 2 years) is compared with Haldane's theoretical limit "
-        "of ~1 gene substitution per 300 generations. For mammals with generation times "
-        "of a few years, 300 generations corresponds to hundreds of years. The observed "
-        "molecular rate is therefore 100-1,000 times higher than what natural selection "
-        "can sustain according to Haldane's cost argument."
-    ),
-    prior=0.9,
-    background=[haldane_cost_principle, mammalian_generation_time],
-)
-
 strat_selection_fails = support(
-    [genome_substitution_rate, haldane_limit_for_mammals],
+    [genome_substitution_rate],
     selection_cannot_explain_rate,
     reason=(
         "The genome-wide substitution rate (@genome_substitution_rate) of ~1 per 2 years "
-        "vastly exceeds the limit imposed by the cost of natural selection "
-        "(@haldane_limit_for_mammals). Since Haldane's argument sets an upper bound on how "
-        "many substitutions natural selection can drive per generation, and the observed "
-        "molecular rate exceeds that bound by 2-3 orders of magnitude, it follows that "
-        "natural selection alone cannot account for the observed rate of molecular evolution."
+        "vastly exceeds the limit imposed by Haldane's cost of natural selection. "
+        "Haldane (1957) estimated that gene substitution by natural selection requires ~30 "
+        "selective deaths per substitution, limiting the rate to ~1 gene substitution per "
+        "300 generations. For mammals with generation times of a few years, this translates "
+        "to at most one substitution every several hundred years. The observed rate exceeds "
+        "this limit by 2-3 orders of magnitude."
     ),
     prior=0.9,
+    background=[haldane_cost_principle, mammalian_generation_time],
 )

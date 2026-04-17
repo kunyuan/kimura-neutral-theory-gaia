@@ -1,6 +1,6 @@
 {
   "package_name": "kimura_neutral_theory",
-  "generated_at": "2026-04-16T10:15:28.246737+00:00",
+  "generated_at": "2026-04-17T10:24:22.426842+00:00",
   "wiki_pages": [
     "Home.md",
     "Module-Root.md",
@@ -26,7 +26,7 @@
     "neutral_theory_hypothesis",
     "selection_cannot_explain_rate"
   ],
-  "total_claims": 28,
-  "total_beliefs": 33,
+  "total_claims": 26,
+  "total_beliefs": 32,
   "readme_placeholders": []
 }

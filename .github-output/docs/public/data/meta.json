@@ -2,5 +2,5 @@
   "package_name": "kimura_neutral_theory",
   "namespace": "github",
   "name": "kimura-neutral-theory-gaia",
-  "description": "Add your description here"
+  "description": "Gaia formalization of Kimura (1968) — Evolutionary Rate at the Molecular Level"
 }

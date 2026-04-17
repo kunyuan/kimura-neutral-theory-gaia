@@ -93,19 +93,6 @@ drosophila_heterozygosity = claim(
 
 # === Strategies ===
 
-# Direct support: if selection can't explain the rate, the neutral theory is supported
-strat_rate_supports_neutral = support(
-    [selection_cannot_explain_rate],
-    neutral_theory_hypothesis,
-    reason=(
-        "If natural selection alone cannot account for the observed rate of molecular "
-        "evolution (@selection_cannot_explain_rate), then an alternative mechanism must "
-        "be responsible. The neutral theory provides this mechanism: random fixation of "
-        "selectively neutral mutations at a rate equal to the mutation rate (k=u)."
-    ),
-    prior=0.9,
-)
-
 # The neutral substitution formula k=u is derived from the fixation probability
 strat_derive_k_equals_u = deduction(
     [neutral_fixation_probability],
@@ -149,8 +136,7 @@ strat_drosophila_het = support(
 
 # --- Abduction: Neutral theory vs selectionist view explaining the observed rate ---
 
-# The neutral theory predicts that substitution rate = mutation rate (k=u),
-# which naturally explains the high observed rate
+# Predictions: what each theory says about the substitution rate
 neutral_predicts_rate = claim(
     "Under the neutral theory, the substitution rate equals the mutation rate ($k = u$), "
     "which for mammals with ~$4 \\times 10^9$ nucleotide pairs and error rates of "
@@ -168,27 +154,30 @@ selectionist_predicts_rate = claim(
     title="Selectionist view predicts a much lower substitution rate",
 )
 
+# Support strategies: each theory attempts to explain the OBSERVATION
 strat_neutral_explains = support(
     [neutral_theory_hypothesis, neutral_substitution_formula],
-    neutral_predicts_rate,
+    genome_substitution_rate,
     reason=(
         "Under @neutral_theory_hypothesis, most substitutions are neutral. "
         "The neutral substitution formula (@neutral_substitution_formula) gives $k = u$. "
         "Since the per-nucleotide mutation rate times the genome size yields ~1 substitution "
-        "per few years, the neutral theory naturally predicts the observed high rate."
+        "per few years, the neutral theory naturally explains the observed high rate "
+        "(@genome_substitution_rate)."
     ),
     prior=0.9,
 )
 
 strat_selectionist_predicts = support(
     [selectionist_view],
-    selectionist_predicts_rate,
+    genome_substitution_rate,
     reason=(
         "Under @selectionist_view, substitutions require positive selection. "
         "Haldane's cost argument limits positive selection to ~1 substitution per 300 "
-        "generations. For mammals this is far below the observed rate of ~1 per 2 years."
+        "generations. For mammals this is far below the observed rate of ~1 per 2 years, "
+        "so the selectionist view poorly explains @genome_substitution_rate."
     ),
-    prior=0.5,
+    prior=0.15,
     background=[selection_cannot_explain_rate],
 )
 

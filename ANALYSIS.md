@@ -2,104 +2,93 @@
 
 ## Package Statistics
 
-| Metric | Value |
-|--------|-------|
-| Total knowledge nodes | 34 |
-| Settings | 4 |
+| Category | Count |
+|----------|-------|
+| **Total knowledge nodes** | 33 |
+| Settings | 5 |
 | Questions | 1 |
-| Claims | 27 (8 independent, 15 derived, 1 structural, 3 orphaned) |
-| Strategies | 21 (1 deduction, 14 support, 1 compare, 1 abduction, 3 induction sub-strategies, 1 composite) |
-| Operators | 1 contradiction |
-| Inference method | Junction Tree (exact), treewidth 3 |
-| Convergence | 2 iterations |
+| Claims | 27 |
+| — Independent (leaf) | 10 |
+| — Derived (BP propagates) | 12 |
+| — Structural (deterministic) | 1 |
+| — Orphaned (compiler-internal) | 4 |
+| **Strategies** | 19 |
+| — support | 12 (63%) |
+| — deduction | 1 (5%) |
+| — compare | 1 (5%) |
+| — abduction | 1 (5%) |
+| — induction | 2 (11%) |
+| — (internal sub-strategies) | 2 |
+| **Operators** | 1 (contradiction) |
+| **Exported conclusions** | 3 |
 
-### Strategy Type Distribution
-
-| Type | Count | Fraction |
-|------|-------|----------|
-| support | 14 | 67% |
-| deduction | 1 | 5% |
-| compare | 1 | 5% |
-| abduction (composite) | 1 | 5% |
-| induction (composite) | 2 | 10% |
-
-### BP Result Summary
-
-| Category | Typical Belief Range |
-|----------|---------------------|
-| Independent premises (empirical data) | 0.38–0.43 |
-| Neutral theory hypothesis | 0.22 |
-| Selectionist view | 0.39 |
-| Derived conclusions (core argument) | 0.30–0.70 |
-| Contradiction (not_both_views) | 1.00 |
+**Inference:** Junction Tree (exact), treewidth 2, converged in 2 iterations (2ms).
 
 ## Summary
 
-Kimura's 1968 paper presents a concise but powerful argument: comparative protein sequence data reveals a genome-wide nucleotide substitution rate (~1 per 2 years) that exceeds Haldane's cost-of-selection limit by 2–3 orders of magnitude. This rate discrepancy is the central evidence supporting the neutral theory — that most molecular substitutions are selectively neutral and fix by random drift.
+Kimura's 1968 argument follows a clear logical structure: (1) comparative protein data establishes a high amino-acid substitution rate across multiple independent protein families; (2) genome-wide extrapolation yields ~1 nucleotide substitution every 2 years; (3) this rate exceeds Haldane's cost-of-selection limit by 2-3 orders of magnitude; (4) therefore most substitutions must be selectively neutral. The formalization captures this as an abduction (neutral theory vs. selectionist view as competing explanations for the observed rate), anchored by induction over three independent protein datasets and supported by independent mutation rate estimates. The v0.4.2 restructuring eliminates a chain-depth bottleneck and a double-counting issue present in the initial formalization, resulting in substantially higher and more accurate belief propagation.
 
-The formalization reveals that the argument has a clear structure: empirical rates from three proteins → averaged rate → genome-wide extrapolation → comparison with Haldane's limit → conclusion that selection cannot explain the rate → neutral theory as the alternative explanation. The abduction comparing neutral vs. selectionist predictions strongly favors the neutral theory (comparison claim belief ≈ 1.0).
+## Exported Conclusions
 
-However, the overall belief in the neutral theory hypothesis itself remains moderate (0.22), primarily due to the multiplicative effect of the reasoning chain: each step introduces uncertainty that compounds through the 4-hop derivation from leaf observations to the core hypothesis. The contradiction between the two views is strongly supported (0.9998), correctly reflecting their mutual exclusivity.
+| Claim | Belief | Confidence |
+|-------|--------|------------|
+| `selection_cannot_explain_rate` | 0.95 | **High** |
+| `genetic_drift_importance` | 0.66 | **Moderate** |
+| `neutral_theory_hypothesis` | 0.47 | **Tentative** |
 
 ## Weak Points
 
 | Claim | Belief | Issue |
 |-------|--------|-------|
-| neutral_theory_hypothesis | 0.22 | Core hypothesis pulled down by deep reasoning chain (4 hops from protein data) and contradiction coupling |
-| genome_substitution_rate | 0.39 | Key intermediate — extrapolation from 3 proteins to entire genome involves large assumptions |
-| selection_cannot_explain_rate | 0.30 | Depends on genome_substitution_rate (0.39) and Haldane's limit (0.59) |
-| mammalian_mutation_rate_per_nucleotide | 0.36 | Based on Watson's rough estimate (order-of-magnitude range) |
-| neutral_predicts_rate | 0.39 | Derived from neutral_theory_hypothesis (0.22) × neutral_substitution_formula (0.67) |
-| genetic_drift_importance | 0.39 | Depends on neutral_theory_hypothesis AND neutral_rate_consistency |
-| heterozygosity_formula | 0.47 | Single-premise support from neutral_theory_hypothesis (0.22) |
+| `neutral_theory_hypothesis` | 0.47 | Below 0.5 despite being the paper's main thesis. The explaining-away effect (genome_substitution_rate is already well-supported by empirical data) limits backward propagation from the abduction. |
+| `selectionist_view` | 0.29 | Appropriately low — the contradiction and weak explanatory support (prior=0.15) correctly suppress this. |
+| `watson_mutation_rate` | 0.80 | Leaf claim with no incoming evidence. Watson's estimate spans an order of magnitude ($10^{-8}$-$10^{-9}$). |
+| `heterozygosity_formula` | 0.70 | Moderately supported; depends on neutral theory hypothesis (0.47) via a single support strategy. |
 
 ## Evidence Gaps
 
 ### Missing Experimental Validations
 
-| Prediction | Status | What Would Strengthen |
-|------------|--------|----------------------|
-| k = u (substitution rate = mutation rate) | Theoretical derivation, no direct test | Direct measurement of both k and u in the same lineage |
-| Heterozygosity = 4Neu/(4Neu+1) | Compared to Drosophila qualitatively | Quantitative test across multiple species with known Ne |
-| Neutral mutations dominate | Inferred from rate argument | Direct evidence that synonymous substitution rate ≈ nonsynonymous rate at neutral sites |
+| Prediction | Status | What Would Help |
+|------------|--------|-----------------|
+| Neutral substitution rate $k = u$ | Theoretical (deduction from fixation probability) | Direct measurement of neutral mutation fixation rates in controlled populations |
+| Heterozygosity $H_e = 4N_eu/(4N_eu+1)$ | One data point (Drosophila) | Heterozygosity measurements across multiple species with known $N_e$ |
 
 ### Untested Conditions
 
-| Assumption | Vulnerability |
-|------------|---------------|
-| Genome-wide extrapolation from 3 proteins | Only haemoglobin, cytochrome c, and triosephosphate dehydrogenase — may not represent the whole genome |
-| Haldane's cost as a hard upper bound | Some theorists argued the cost can be relaxed under soft selection |
-| Watson's misincorporation rate (10⁻⁸ to 10⁻⁹) | Order-of-magnitude uncertainty; later measurements refined this |
-| Generation time assumptions for mammals | Varies greatly across species; affects the rate comparison |
+| Condition | Gap |
+|-----------|-----|
+| Non-mammalian genomes | All rate data from mammals; generalization untested |
+| Synonymous vs. non-synonymous rates | Paper does not separate synonymous substitutions |
+| Nearly neutral (weakly deleterious) mutations | Paper treats mutations as strictly neutral; nearly-neutral theory (Ohta 1973) later refined this |
 
 ### Competing Explanations Not Fully Resolved
 
-| Alternative | How Addressed | Remaining Gap |
-|-------------|---------------|---------------|
-| Selectionist view | Compared via abduction; Haldane's cost argument shows 100-1000x discrepancy | Some selectionists argue truncation selection or soft selection can bypass Haldane's cost |
-| Nearly neutral theory (Ohta) | Not addressed (published later, 1973) | Kimura's "nearly neutral" phrasing anticipates this but does not formalize the distinction |
+| Alternative | Status |
+|-------------|--------|
+| Selectionist view | Addressed via abduction; belief correctly suppressed to 0.29 |
+| Haldane's cost may be overestimated | Not modeled. If the cost is lower than Haldane assumed, the selectionist view becomes more tenable. |
+| Gene regulation (non-coding) evolution | Paper focuses on coding regions; non-coding evolution not addressed |
 
 ## Contradictions
 
 ### Explicit (modeled)
 
-| Contradiction | Resolution |
-|---------------|------------|
-| neutral_theory_hypothesis vs. selectionist_view | BP slightly favors selectionist (0.39) over neutral (0.22) due to chain depth, but the abduction comparison claim (belief ≈ 1.0) strongly supports neutral theory's explanatory power |
+- **`contradiction(neutral_theory_hypothesis, selectionist_view)`** — BP resolves in favor of the neutral theory: NTH (0.47) > selectionist (0.29). The abduction comparison claim reaches ~1.0, confirming the neutral theory is the better explanation for the observed rate.
 
-### Implicit Tensions (not modeled)
+### Implicit Tensions (not modeled as formal contradictions)
 
-1. **Rate extrapolation vs. coding fraction**: The paper extrapolates from coding protein regions to the entire genome, but acknowledges only a few percent of DNA codes for proteins. The substitution rate in non-coding regions may differ substantially.
-2. **Population size independence vs. heterozygosity dependence**: The neutral substitution rate k=u is population-size-independent, but heterozygosity depends on 4Neu. This creates a tension between the "universality" argument and the species-specific predictions.
-3. **Drosophila mutation rate scaling**: The claim that Drosophila has 10x higher mutation rate per nucleotide per generation than humans is used somewhat circularly — it supports the neutral theory while also depending on it for interpretation.
+1. **Kimura's extrapolation assumes uniform rate.** The coding fraction is "a few per cent" of the genome, but the extrapolation uses the amino-acid rate for the entire genome. If non-coding regions evolve faster, the actual genome-wide rate could be even higher.
+2. **Haldane's cost is contested.** Several authors (Kimura acknowledges this implicitly) have questioned whether the substitutional load argument applies as strictly as Haldane formulated it. If the cost is lower, the gap narrows.
+3. **Drosophila rate ~10x higher than human.** Used to estimate neutral mutation rates, but the difference in per-nucleotide rate between species complicates the argument (different generation times, DNA content).
 
 ## Confidence Assessment
 
 | Tier | Claims | Belief Range |
 |------|--------|-------------|
-| **Very High** | not_both_views (contradiction), _anon_002 (abduction comparison) | 0.95–1.00 |
-| **High** | normalized_aa_rate, neutral_substitution_formula, founder_principle_inadequate, drosophila_heterozygosity | 0.63–0.70 |
-| **Moderate** | haldane_limit_for_mammals, neutral_rate_consistency, drosophila_mutation_rate, heterozygosity_formula | 0.47–0.59 |
-| **Tentative** | neutral_theory_hypothesis, genome_substitution_rate, selection_cannot_explain_rate, genetic_drift_importance, neutral_predicts_rate | 0.22–0.39 |
+| **Very High** | `normalized_aa_rate`, `genome_substitution_rate`, `neutral_substitution_formula`, `selection_cannot_explain_rate` | 0.95-1.0 |
+| **High** | `mammalian_mutation_rate_per_nucleotide`, `neutral_rate_consistency`, `founder_principle_inadequate`, `drosophila_heterozygosity`, `drosophila_mutation_rate` | 0.78-0.83 |
+| **Moderate** | `genetic_drift_importance`, `heterozygosity_formula` | 0.66-0.70 |
+| **Tentative** | `neutral_theory_hypothesis` | 0.47 |
 
-The tentative tier includes the paper's core conclusions, reflecting the fact that Kimura's 1968 argument — while logically sound and historically influential — rests on a chain of extrapolations from limited protein data with order-of-magnitude uncertainties. The formalization correctly captures that the argument's strength lies in the *structure* of the rate discrepancy (which the abduction captures with very high belief), while the *quantitative precision* of individual steps introduces compounding uncertainty.
+The very high confidence in `selection_cannot_explain_rate` (0.95) reflects the robustness of the arithmetic and the convergence of three independent protein datasets via induction. The moderate belief in `genetic_drift_importance` (0.66) captures that this conclusion depends on the neutral theory hypothesis, which itself is only tentatively supported (0.47) from a single 3-page paper with limited data. The tentative rating for `neutral_theory_hypothesis` aligns with its status as a then-novel proposal: Kimura's argument is logically sound and better than the alternative, but a short Nature letter with three protein comparisons provides limited evidentiary weight.

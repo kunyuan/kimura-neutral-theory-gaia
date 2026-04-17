@@ -1,11 +1,6 @@
 {
   "beliefs": [
     {
-      "belief": 0.998899099157252,
-      "knowledge_id": "github:kimura_neutral_theory::__implication_result_c95ed4e9",
-      "label": "__implication_result_c95ed4e9"
-    },
-    {
       "belief": 0.5,
       "knowledge_id": "github:kimura_neutral_theory::_anon_000",
       "label": null
@@ -16,7 +11,7 @@
       "label": null
     },
     {
-      "belief": 0.9999979892116126,
+      "belief": 0.9999988759748323,
       "knowledge_id": "github:kimura_neutral_theory::_anon_002",
       "label": null
     },
@@ -26,122 +21,112 @@
       "label": null
     },
     {
-      "belief": 0.42634771995448395,
+      "belief": 0.88,
       "knowledge_id": "github:kimura_neutral_theory::cell_divisions_to_gamete",
       "label": "cell_divisions_to_gamete"
     },
     {
-      "belief": 0.3783857466131872,
+      "belief": 0.9443485036737569,
       "knowledge_id": "github:kimura_neutral_theory::cytochrome_c_rate",
       "label": "cytochrome_c_rate"
     },
     {
-      "belief": 0.5,
-      "knowledge_id": "github:kimura_neutral_theory::dna_content_coding_fraction",
-      "label": "dna_content_coding_fraction"
-    },
-    {
-      "belief": 0.6412118760506436,
+      "belief": 0.7783488517695405,
       "knowledge_id": "github:kimura_neutral_theory::drosophila_heterozygosity",
       "label": "drosophila_heterozygosity"
     },
     {
-      "belief": 0.5897477125820769,
+      "belief": 0.7922420669551999,
       "knowledge_id": "github:kimura_neutral_theory::drosophila_mutation_rate",
       "label": "drosophila_mutation_rate"
     },
     {
-      "belief": 0.6560845549792467,
+      "belief": 0.7977297382473801,
       "knowledge_id": "github:kimura_neutral_theory::founder_principle_inadequate",
       "label": "founder_principle_inadequate"
     },
     {
-      "belief": 0.3909933741965098,
+      "belief": 0.6629475356209755,
       "knowledge_id": "github:kimura_neutral_theory::genetic_drift_importance",
       "label": "genetic_drift_importance"
     },
     {
-      "belief": 0.39223222629494164,
+      "belief": 0.9988924413569749,
       "knowledge_id": "github:kimura_neutral_theory::genome_substitution_rate",
       "label": "genome_substitution_rate"
     },
     {
-      "belief": 0.3783857466131872,
+      "belief": 0.9558808940455409,
       "knowledge_id": "github:kimura_neutral_theory::haemoglobin_rate",
       "label": "haemoglobin_rate"
     },
     {
-      "belief": 0.5856886375800964,
-      "knowledge_id": "github:kimura_neutral_theory::haldane_limit_for_mammals",
-      "label": "haldane_limit_for_mammals"
-    },
-    {
-      "belief": 0.4716495526073599,
+      "belief": 0.6972666627493499,
       "knowledge_id": "github:kimura_neutral_theory::heterozygosity_formula",
       "label": "heterozygosity_formula"
     },
     {
-      "belief": 0.3597102708700479,
+      "belief": 0.7808739264,
       "knowledge_id": "github:kimura_neutral_theory::mammalian_mutation_rate_per_nucleotide",
       "label": "mammalian_mutation_rate_per_nucleotide"
     },
     {
-      "belief": 0.44954957862601386,
+      "belief": 0.9552194645970933,
       "knowledge_id": "github:kimura_neutral_theory::neutral_fixation_probability",
       "label": "neutral_fixation_probability"
     },
     {
-      "belief": 0.39264766713602417,
+      "belief": 0.9987910759081946,
       "knowledge_id": "github:kimura_neutral_theory::neutral_predicts_rate",
       "label": "neutral_predicts_rate"
     },
     {
-      "belief": 0.536518776293392,
+      "belief": 0.8230120387942323,
       "knowledge_id": "github:kimura_neutral_theory::neutral_rate_consistency",
       "label": "neutral_rate_consistency"
     },
     {
-      "belief": 0.6731958324065911,
+      "belief": 0.9759265290212161,
       "knowledge_id": "github:kimura_neutral_theory::neutral_substitution_formula",
       "label": "neutral_substitution_formula"
     },
     {
-      "belief": 0.22033048758889087,
+      "belief": 0.46508702758304826,
       "knowledge_id": "github:kimura_neutral_theory::neutral_theory_hypothesis",
       "label": "neutral_theory_hypothesis"
     },
     {
-      "belief": 0.6953550766863407,
+      "belief": 0.9992425881283142,
       "knowledge_id": "github:kimura_neutral_theory::normalized_aa_rate",
       "label": "normalized_aa_rate"
     },
     {
-      "belief": 0.9997788882820005,
+      "belief": 0.999465004736503,
       "knowledge_id": "github:kimura_neutral_theory::not_both_views",
       "label": "not_both_views"
     },
     {
-      "belief": 0.30092958769037814,
+      "belief": 0.9486025954134174,
       "knowledge_id": "github:kimura_neutral_theory::selection_cannot_explain_rate",
       "label": "selection_cannot_explain_rate"
     },
     {
-      "belief": 0.3926632786628837,
+      "belief": 0.9985521220946187,
       "knowledge_id": "github:kimura_neutral_theory::selectionist_predicts_rate",
       "label": "selectionist_predicts_rate"
     },
     {
-      "belief": 0.3902749765197571,
+      "belief": 0.2870716355946453,
       "knowledge_id": "github:kimura_neutral_theory::selectionist_view",
       "label": "selectionist_view"
     },
     {
-      "belief": 0.3783857466131872,
+      "belief": 0.9145245279260864,
       "knowledge_id": "github:kimura_neutral_theory::triosephosphate_rate",
       "label": "triosephosphate_rate"
     },
     {
-      "belief": 0.42634771995448395,
+      "belief": 0.8,
       "knowledge_id": "github:kimura_neutral_theory::watson_mutation_rate",
       "label": "watson_mutation_rate"
     }
@@ -149,76 +134,22 @@
   "diagnostics": {
     "belief_history": {
       "github:kimura_neutral_theory::__conjunction_result_050dd549": [
-        0.08396032801320583
+        0.38417431479659425
       ],
       "github:kimura_neutral_theory::__conjunction_result_0a664a05": [
-        0.21240787864805913
-      ],
-      "github:kimura_neutral_theory::__conjunction_result_248ba056": [
-        0.28099613488199643
+        0.761551429433531
       ],
       "github:kimura_neutral_theory::__conjunction_result_4a8328fd": [
-        0.13965272813245988
+        0.7035920000000001
       ],
-      "github:kimura_neutral_theory::__conjunction_result_e91047ae": [
-        0.12064688763490654
+      "github:kimura_neutral_theory::__conjunction_result_a7582751": [
+        0.4582157881251214
       ],
       "github:kimura_neutral_theory::__equivalence_result_1b46966c": [
-        0.9989989942369466
+        0.9998163223841865
       ],
       "github:kimura_neutral_theory::__equivalence_result_68d766f3": [
-        0.9999969736337625
-      ],
-      "github:kimura_neutral_theory::__implication_result_05933f2c": [
-        0.7283230003849359
-      ],
-      "github:kimura_neutral_theory::__implication_result_15e9fecf": [
-        0.9608329349751662
-      ],
-      "github:kimura_neutral_theory::__implication_result_3ba13eae": [
-        0.986961859663282
-      ],
-      "github:kimura_neutral_theory::__implication_result_5104c2bb": [
-        0.8904595547071209
-      ],
-      "github:kimura_neutral_theory::__implication_result_5927b19d": [
-        0.9694581772553016
-      ],
-      "github:kimura_neutral_theory::__implication_result_61d654a8": [
-        0.9117448527925209
-      ],
-      "github:kimura_neutral_theory::__implication_result_6362f053": [
-        0.9098588599912506
-      ],
-      "github:kimura_neutral_theory::__implication_result_6d5c12ec": [
-        0.9504144911585446
-      ],
-      "github:kimura_neutral_theory::__implication_result_728cfe83": [
-        0.6406136307580215
-      ],
-      "github:kimura_neutral_theory::__implication_result_7e72fdbd": [
-        0.964090738983976
-      ],
-      "github:kimura_neutral_theory::__implication_result_a34b9171": [
-        0.9514143339762312
-      ],
-      "github:kimura_neutral_theory::__implication_result_a5b88ef8": [
-        0.9694581772553016
-      ],
-      "github:kimura_neutral_theory::__implication_result_b46c0e21": [
-        0.9055379027266159
-      ],
-      "github:kimura_neutral_theory::__implication_result_bbde1763": [
-        0.9796304991676879
-      ],
-      "github:kimura_neutral_theory::__implication_result_c95ed4e9": [
-        0.998899099157252
-      ],
-      "github:kimura_neutral_theory::__implication_result_e00a9458": [
-        0.9694581772553016
-      ],
-      "github:kimura_neutral_theory::__implication_result_ea03f248": [
-        0.8619329724881781
+        0.9999996805717482
       ],
       "github:kimura_neutral_theory::_anon_000": [
         0.5
@@ -227,90 +158,84 @@
         0.5
       ],
       "github:kimura_neutral_theory::_anon_002": [
-        0.9999979892116126
+        0.9999988759748323
       ],
       "github:kimura_neutral_theory::_anon_003": [
         0.5
       ],
       "github:kimura_neutral_theory::cell_divisions_to_gamete": [
-        0.42634771995448395
+        0.88
       ],
       "github:kimura_neutral_theory::cytochrome_c_rate": [
-        0.3783857466131872
-      ],
-      "github:kimura_neutral_theory::dna_content_coding_fraction": [
-        0.5
+        0.9443485036737569
       ],
       "github:kimura_neutral_theory::drosophila_heterozygosity": [
-        0.6412118760506436
+        0.7783488517695405
       ],
       "github:kimura_neutral_theory::drosophila_mutation_rate": [
-        0.5897477125820769
+        0.7922420669551999
       ],
       "github:kimura_neutral_theory::founder_principle_inadequate": [
-        0.6560845549792467
+        0.7977297382473801
       ],
       "github:kimura_neutral_theory::genetic_drift_importance": [
-        0.3909933741965098
+        0.6629475356209755
       ],
       "github:kimura_neutral_theory::genome_substitution_rate": [
-        0.39223222629494164
+        0.9988924413569749
       ],
       "github:kimura_neutral_theory::haemoglobin_rate": [
-        0.3783857466131872
-      ],
-      "github:kimura_neutral_theory::haldane_limit_for_mammals": [
-        0.5856886375800964
+        0.9558808940455409
       ],
       "github:kimura_neutral_theory::heterozygosity_formula": [
-        0.4716495526073599
+        0.6972666627493499
       ],
       "github:kimura_neutral_theory::mammalian_mutation_rate_per_nucleotide": [
-        0.3597102708700479
+        0.7808739264
       ],
       "github:kimura_neutral_theory::neutral_fixation_probability": [
-        0.44954957862601386
+        0.9552194645970933
       ],
       "github:kimura_neutral_theory::neutral_predicts_rate": [
-        0.39264766713602417
+        0.9987910759081946
       ],
       "github:kimura_neutral_theory::neutral_rate_consistency": [
-        0.536518776293392
+        0.8230120387942323
       ],
       "github:kimura_neutral_theory::neutral_substitution_formula": [
-        0.6731958324065911
+        0.9759265290212161
       ],
       "github:kimura_neutral_theory::neutral_theory_hypothesis": [
-        0.22033048758889087
+        0.46508702758304826
       ],
       "github:kimura_neutral_theory::normalized_aa_rate": [
-        0.6953550766863407
+        0.9992425881283142
       ],
       "github:kimura_neutral_theory::not_both_views": [
-        0.9997788882820005
+        0.999465004736503
       ],
       "github:kimura_neutral_theory::selection_cannot_explain_rate": [
-        0.30092958769037814
+        0.9486025954134174
       ],
       "github:kimura_neutral_theory::selectionist_predicts_rate": [
-        0.3926632786628837
+        0.9985521220946187
       ],
       "github:kimura_neutral_theory::selectionist_view": [
-        0.3902749765197571
+        0.2870716355946453
       ],
       "github:kimura_neutral_theory::triosephosphate_rate": [
-        0.3783857466131872
+        0.9145245279260864
       ],
       "github:kimura_neutral_theory::watson_mutation_rate": [
-        0.42634771995448395
+        0.8
       ]
     },
     "converged": true,
     "direction_changes": {},
     "iterations_run": 2,
     "max_change_at_stop": 0.0,
-    "treewidth": 3
+    "treewidth": 2
   },
   "gaia_lang_version": "0.4.1",
-  "ir_hash": "sha256:109eb7610f037e73f0dfd79e2d74504a92ff52507ab2adce498dd0bba3185d89"
+  "ir_hash": "sha256:e8bf6ebe5c8747b69e27d711fec0f69b367f29ad7acbbdc4c9af21d9d56d96b7"
 }

@@ -64,13 +64,10 @@ triosephosphate_rate = claim(
     metadata={"source": "artifacts/paper.pdf, p.625"},
 )
 
-dna_content_coding_fraction = claim(
-    "Kimura estimated that the DNA content in terms of nucleotide pairs is at most a few "
-    "per cent of the total for higher organisms. Taking the equivalent of about $10^7$ "
-    "nucleotide pairs as coding for amino acids (a polypeptide chain of 100 amino acids "
-    "corresponds to 300 nucleotide pairs), the evolutionary rate for the coding region "
-    "appears to be very low for cytochrome c, but amounts to a very high rate for the "
-    "entire genome when extrapolated.",
+dna_content_coding_fraction = setting(
+    "The DNA content in terms of nucleotide pairs coding for amino acids is at most "
+    "a few per cent of the total genome for higher organisms. Taking the equivalent "
+    "of about $10^7$ nucleotide pairs as coding for amino acids (a polypeptide chain "
+    "of 100 amino acids corresponds to 300 nucleotide pairs).",
     title="DNA coding fraction estimate",
-    metadata={"source": "artifacts/paper.pdf, p.625"},
 )

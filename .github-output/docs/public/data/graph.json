@@ -9,14 +9,14 @@
     {
       "id": "s2_rate_calculation",
       "order": 1,
-      "node_count": 7,
-      "strategy_count": 8
+      "node_count": 6,
+      "strategy_count": 9
     },
     {
       "id": "s3_neutral_theory",
       "order": 2,
       "node_count": 11,
-      "strategy_count": 8
+      "strategy_count": 5
     },
     {
       "id": "s4_mutation_rates",
@@ -40,6 +40,11 @@
     {
       "from_module": "s2_rate_calculation",
       "to_module": "s3_neutral_theory",
+      "count": 2
+    },
+    {
+      "from_module": "s3_neutral_theory",
+      "to_module": "s2_rate_calculation",
       "count": 3
     },
     {
@@ -114,11 +119,13 @@
       "type": "claim",
       "module": "motivation",
       "content": "Comparative studies of haemoglobin molecules among different groups of mammals suggest that amino-acid substitution has taken place roughly at the rate of one amino-acid change in $10^7$ years for a chain consisting of about 140 amino acids. For example, by comparing the $\\alpha$ and $\\beta$ chains of man with those of horse, pig, cattle and rabbit, the figure of one amino-acid change in $7 \\times 10^6$ years was obtained (Zuckerkandl and Pauling, 1965).",
-      "prior": null,
-      "belief": 0.3783857466131872,
+      "prior": 0.92,
+      "belief": 0.9558808940455409,
       "exported": false,
       "metadata": {
-        "source": "artifacts/paper.pdf, p.624"
+        "source": "artifacts/paper.pdf, p.624",
+        "prior": 0.92,
+        "prior_justification": "Well-established comparative data from Zuckerkandl & Pauling (1965), confirmed by decades of subsequent molecular evolution studies."
       }
     },
     {
@@ -128,11 +135,13 @@
       "type": "claim",
       "module": "motivation",
       "content": "The rate of amino-acid substitution estimated by comparing gorilla and human cytochrome c (a chain of about 100 amino acids) turned out to be approximately one replacement in $4.5 \\times 10^7$ years.",
-      "prior": null,
-      "belief": 0.3783857466131872,
+      "prior": 0.9,
+      "belief": 0.9443485036737569,
       "exported": false,
       "metadata": {
-        "source": "artifacts/paper.pdf, p.625"
+        "source": "artifacts/paper.pdf, p.625",
+        "prior": 0.9,
+        "prior_justification": "Gorilla-human cytochrome c comparison; highly conserved protein, rate estimate consistent with later studies."
       }
     },
     {
@@ -142,34 +151,34 @@
       "type": "claim",
       "module": "motivation",
       "content": "Comparing triosephosphate dehydrogenase of rabbit with that of other species yields a figure of at least one amino-acid substitution for every $2.5 \\times 10^7$ years for chains of about 1,110 amino acids. This figure is roughly equivalent to the rate of one amino-acid substitution in $2.8 \\times 10^7$ years for a chain consisting of 100 amino acids.",
-      "prior": null,
-      "belief": 0.3783857466131872,
+      "prior": 0.85,
+      "belief": 0.9145245279260864,
       "exported": false,
       "metadata": {
-        "source": "artifacts/paper.pdf, p.625"
+        "source": "artifacts/paper.pdf, p.625",
+        "prior": 0.85,
+        "prior_justification": "Less well-characterized than haemoglobin at time of publication, but broadly consistent with later molecular clock data."
       }
     },
     {
       "id": "github:kimura_neutral_theory::dna_content_coding_fraction",
       "label": "dna_content_coding_fraction",
       "title": "DNA coding fraction estimate",
-      "type": "claim",
+      "type": "setting",
       "module": "motivation",
-      "content": "Kimura estimated that the DNA content in terms of nucleotide pairs is at most a few per cent of the total for higher organisms. Taking the equivalent of about $10^7$ nucleotide pairs as coding for amino acids (a polypeptide chain of 100 amino acids corresponds to 300 nucleotide pairs), the evolutionary rate for the coding region appears to be very low for cytochrome c, but amounts to a very high rate for the entire genome when extrapolated.",
+      "content": "The DNA content in terms of nucleotide pairs coding for amino acids is at most a few per cent of the total genome for higher organisms. Taking the equivalent of about $10^7$ nucleotide pairs as coding for amino acids (a polypeptide chain of 100 amino acids corresponds to 300 nucleotide pairs).",
       "prior": null,
-      "belief": 0.5,
+      "belief": null,
       "exported": false,
-      "metadata": {
-        "source": "artifacts/paper.pdf, p.625"
-      }
+      "metadata": {}
     },
     {
       "id": "github:kimura_neutral_theory::mammalian_generation_time",
       "label": "mammalian_generation_time",
-      "title": "Mammalian generation time",
+      "title": "Mammalian generation time (order of years)",
       "type": "setting",
       "module": "s2_rate_calculation",
-      "content": "For mammals, the average generation time is on the order of years (e.g., roughly 1 year for small mammals, longer for large mammals). Kimura uses an approximate figure for illustrative calculation.",
+      "content": "For mammals, the average length of one generation varies by body size: roughly 1-2 years for small mammals (mice, rabbits) and up to 20-30 years for large mammals (humans, elephants). Kimura uses an order-of-magnitude figure of a few years for the illustrative calculation comparing molecular rates with Haldane's cost limit.",
       "prior": null,
       "belief": null,
       "exported": false,
@@ -183,7 +192,7 @@
       "module": "s2_rate_calculation",
       "content": "Averaging figures for haemoglobin, cytochrome c, and triosephosphate dehydrogenase gives an evolutionary rate of approximately one amino-acid substitution in $28 \\times 10^6$ years (i.e., $2.8 \\times 10^7$ years) for a polypeptide chain of 100 amino acids.",
       "prior": null,
-      "belief": 0.6953550766863407,
+      "belief": 0.9992425881283142,
       "exported": false,
       "metadata": {
         "source": "artifacts/paper.pdf, p.625",
@@ -206,35 +215,18 @@
       "module": "s2_rate_calculation",
       "content": "Extrapolating from the averaged amino-acid substitution rate to the whole genome, and noting that a polypeptide of 100 amino acids is coded by 300 nucleotide pairs, the rate of nucleotide substitution per genome per year is estimated as:\n\n$$k = \\frac{1}{2.8 \\times 10^7} \\times \\frac{4 \\times 10^9}{3 \\times 10^2} \\approx \\frac{1}{2}$$\n\nThat is, approximately one nucleotide pair substitution in the population every 2 years, or equivalently about one substitution every 1.8 years across the entire mammalian genome.",
       "prior": null,
-      "belief": 0.39223222629494164,
+      "belief": 0.9988924413569749,
       "exported": false,
       "metadata": {
         "source": "artifacts/paper.pdf, p.625",
         "gaia": {
           "provenance": {
             "referenced_claims": [
-              "normalized_aa_rate"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "id": "github:kimura_neutral_theory::haldane_limit_for_mammals",
-      "label": "haldane_limit_for_mammals",
-      "title": "Haldane's cost limits substitution rate far below observed rate",
-      "type": "claim",
-      "module": "s2_rate_calculation",
-      "content": "If we assume that the cost of natural selection per generation is about 0.1 (Haldane, 1957), and that a new allele is substituted by natural selection roughly every 300 generations, then for mammals with approximately $4 \\times 10^9$ nucleotide pairs and generation times of a few years, the total number of substitutions attributable to selection would be far fewer than one per two years. Haldane's formula gives approximately one gene substitution every 300 generations. The actual rate of nucleotide substitution estimated from protein data is roughly one substitution every 2 years per genome, which is vastly higher than the selection limit.",
-      "prior": null,
-      "belief": 0.5856886375800964,
-      "exported": false,
-      "metadata": {
-        "source": "artifacts/paper.pdf, p.625",
-        "gaia": {
-          "provenance": {
-            "referenced_claims": [
-              "genome_substitution_rate"
+              "genome_substitution_rate",
+              "neutral_substitution_formula",
+              "neutral_theory_hypothesis",
+              "normalized_aa_rate",
+              "selectionist_view"
             ]
           }
         }
@@ -246,17 +238,16 @@
       "title": "Selection alone cannot explain the observed substitution rate",
       "type": "claim",
       "module": "s2_rate_calculation",
-      "content": "The observed rate of nucleotide substitution (approximately one per two years per mammalian genome) is so high that it cannot be accounted for by natural selection alone. Haldane's cost of natural selection limits the rate of gene substitution by positive selection to roughly one every 300 generations. The observed molecular substitution rate is 100-1,000 times higher than this limit. Therefore, most nucleotide substitutions in evolution must not have been driven by positive natural selection.",
+      "content": "The observed rate of nucleotide substitution (approximately one per two years per mammalian genome) is so high that it cannot be accounted for by natural selection alone. Haldane (1957) showed that the cost of natural selection limits the rate of gene substitution by positive selection to roughly one every 300 generations. For mammals with generation times of a few years, 300 generations corresponds to hundreds to thousands of years. The observed molecular substitution rate is therefore 100-1,000 times higher than this limit, meaning most nucleotide substitutions in evolution must not have been driven by positive natural selection.",
       "prior": null,
-      "belief": 0.30092958769037814,
+      "belief": 0.9486025954134174,
       "exported": true,
       "metadata": {
         "source": "artifacts/paper.pdf, p.625",
         "gaia": {
           "provenance": {
             "referenced_claims": [
-              "genome_substitution_rate",
-              "haldane_limit_for_mammals"
+              "genome_substitution_rate"
             ]
           }
         }
@@ -301,18 +292,13 @@
       "type": "claim",
       "module": "s3_neutral_theory",
       "content": "Most mutations produced by nucleotide replacement are almost neutral in natural selection, meaning they have so little effect on the fitness of the organism that their fate in the population is determined primarily by random genetic drift rather than by selection. The very high rate of nucleotide substitution observed at the molecular level can be explained if most substitutions are the result of random fixation of selectively neutral or nearly neutral mutations.",
-      "prior": null,
-      "belief": 0.22033048758889087,
+      "prior": 0.5,
+      "belief": 0.46508702758304826,
       "exported": true,
       "metadata": {
         "source": "artifacts/paper.pdf, p.625",
-        "gaia": {
-          "provenance": {
-            "referenced_claims": [
-              "selection_cannot_explain_rate"
-            ]
-          }
-        }
+        "prior": 0.5,
+        "prior_justification": "Central hypothesis of the paper; novel and controversial in 1968. Uninformative prior lets the abduction evidence determine posterior."
       }
     },
     {
@@ -322,10 +308,13 @@
       "type": "claim",
       "module": "s3_neutral_theory",
       "content": "The conventional (selectionist) view holds that most molecular evolution is driven by positive natural selection: each amino-acid or nucleotide substitution that becomes fixed in a population does so because it confers a selective advantage. Under this view, the substitution rate is limited by Haldane's cost of natural selection.",
-      "prior": null,
-      "belief": 0.3902749765197571,
+      "prior": 0.5,
+      "belief": 0.2870716355946453,
       "exported": false,
-      "metadata": {}
+      "metadata": {
+        "prior": 0.5,
+        "prior_justification": "Prevailing view in 1968. Symmetric uninformative prior with the neutral theory hypothesis."
+      }
     },
     {
       "id": "github:kimura_neutral_theory::not_both_views",
@@ -335,7 +324,7 @@
       "module": "s3_neutral_theory",
       "content": "not_both_true(A, B)",
       "prior": 0.95,
-      "belief": 0.9997788882820005,
+      "belief": 0.999465004736503,
       "exported": false,
       "metadata": {
         "helper_kind": "contradiction_result",
@@ -350,7 +339,7 @@
       "module": "s3_neutral_theory",
       "content": "For neutral mutations, the rate of mutant substitution in the population (the rate at which new alleles become fixed) is:\n\n$$k = u$$\n\nwhere $u$ is the mutation rate per gamete per generation. This result holds because the probability that a new neutral mutation eventually becomes fixed in a population of effective size $N_e$ is $1/(2N_e)$, and the number of new neutral mutations appearing each generation is $2N_e u$. Multiplying these: $k = 2N_e u \\times \\frac{1}{2N_e} = u$. This is independent of population size.",
       "prior": null,
-      "belief": 0.6731958324065911,
+      "belief": 0.9759265290212161,
       "exported": false,
       "metadata": {
         "source": "artifacts/paper.pdf, p.625, formula (1)",
@@ -370,11 +359,13 @@
       "type": "claim",
       "module": "s3_neutral_theory",
       "content": "For a selectively neutral mutation in a diploid population of effective size $N_e$, the probability of eventual fixation is $p = 1/(2N_e)$, which equals the initial frequency of the new allele if it appears as a single copy.",
-      "prior": null,
-      "belief": 0.44954957862601386,
+      "prior": 0.95,
+      "belief": 0.9552194645970933,
       "exported": false,
       "metadata": {
-        "source": "artifacts/paper.pdf, p.625"
+        "source": "artifacts/paper.pdf, p.625",
+        "prior": 0.95,
+        "prior_justification": "Standard result in population genetics, derived rigorously by Kimura (1962) using diffusion theory."
       }
     },
     {
@@ -385,7 +376,7 @@
       "module": "s3_neutral_theory",
       "content": "Kimura and Crow (1964) showed that for neutral mutations, the probability that a randomly chosen individual is homozygous at a locus is $1/(4N_e u + 1)$, where $N_e$ is the effective population number and $u$ is the mutation rate per locus per generation. Therefore, the expected heterozygosity is:\n\n$$H_e = \\frac{4 N_e u}{4 N_e u + 1}$$\n\nTo attain a heterozygosity of at least $H_e = 0.12$, it is necessary that $N_e \\geq 2{,}300$. For a higher heterozygosity such as $H_e = 0.35$, $N_e$ must be about $8{,}000$.",
       "prior": null,
-      "belief": 0.4716495526073599,
+      "belief": 0.6972666627493499,
       "exported": false,
       "metadata": {
         "source": "artifacts/paper.pdf, p.626",
@@ -406,7 +397,7 @@
       "module": "s3_neutral_theory",
       "content": "For Drosophila, with migration between subgroups, heterozygosity of 35 per cent may be attained even if the effective population size $N_e$ is much smaller for each subgroup. This is consistent with the neutral theory's prediction that heterozygosity is maintained by the balance between neutral mutation and random genetic drift.",
       "prior": null,
-      "belief": 0.6412118760506436,
+      "belief": 0.7783488517695405,
       "exported": false,
       "metadata": {
         "source": "artifacts/paper.pdf, p.626",
@@ -426,18 +417,12 @@
       "type": "claim",
       "module": "s3_neutral_theory",
       "content": "Under the neutral theory, the substitution rate equals the mutation rate ($k = u$), which for mammals with ~$4 \\times 10^9$ nucleotide pairs and error rates of $10^{-8}$ to $10^{-9}$ per nucleotide per replication, predicts a genome-wide substitution rate on the order of one per few years. This matches the observed rate of ~1 substitution per 2 years.",
-      "prior": null,
-      "belief": 0.39264766713602417,
+      "prior": 0.9,
+      "belief": 0.9987910759081946,
       "exported": false,
       "metadata": {
-        "gaia": {
-          "provenance": {
-            "referenced_claims": [
-              "neutral_substitution_formula",
-              "neutral_theory_hypothesis"
-            ]
-          }
-        }
+        "prior": 0.9,
+        "prior_justification": "Straightforward mathematical consequence of k=u and known genome size / mutation rate. If the neutral theory holds, this prediction follows directly."
       }
     },
     {
@@ -447,17 +432,12 @@
       "type": "claim",
       "module": "s3_neutral_theory",
       "content": "Under the selectionist view, the substitution rate is limited by Haldane's cost of natural selection to roughly one gene substitution every 300 generations. For mammals, this predicts a far lower rate than the observed ~1 substitution per 2 years, a discrepancy of 2-3 orders of magnitude.",
-      "prior": null,
-      "belief": 0.3926632786628837,
+      "prior": 0.85,
+      "belief": 0.9985521220946187,
       "exported": false,
       "metadata": {
-        "gaia": {
-          "provenance": {
-            "referenced_claims": [
-              "selectionist_view"
-            ]
-          }
-        }
+        "prior": 0.85,
+        "prior_justification": "Follows from Haldane's cost calculation. The math is well-established; uncertainty is in whether Haldane's cost model fully captures selection dynamics."
       }
     },
     {
@@ -468,7 +448,7 @@
       "module": "s3_neutral_theory",
       "content": "compare(Under the neutral theory, the substitution rate equals the mutation rate ($k = u$), which for mammals with ~$4 \\times 10^9$ nucleotide pairs and error rates of $10^{-8}$ to $10^{-9}$ per nucleotide per replication, predicts a genome-wide substitution rate on the order of one per few years. This matches the observed rate of ~1 substitution per 2 years., Under the selectionist view, the substitution rate is limited by Haldane's cost of natural selection to roughly one gene substitution every 300 generations. For mammals, this predicts a far lower rate than the observed ~1 substitution per 2 years, a discrepancy of 2-3 orders of magnitude., Extrapolating from the averaged amino-acid substitution rate to the whole genome, and noting that a polypeptide of 100 amino acids is coded by 300 nucleotide pairs, the rate of nucleotide substitution per genome per year is estimated as:\n\n$$k = \\frac{1}{2.8 \\times 10^7} \\times \\frac{4 \\times 10^9}{3 \\times 10^2} \\approx \\frac{1}{2}$$\n\nThat is, approximately one nucleotide pair substitution in the population every 2 years, or equivalently about one substitution every 1.8 years across the entire mammalian genome.)",
       "prior": null,
-      "belief": 0.9999979892116126,
+      "belief": 0.9999988759748323,
       "exported": false,
       "metadata": {
         "helper_kind": "comparison_claim",
@@ -507,11 +487,13 @@
       "type": "claim",
       "module": "s4_mutation_rates",
       "content": "From a consideration of the average energy of hydrogen bonds and from information on mutation of rIIA gene in phage T4, Watson (1965) obtained $10^{-8}$ to $10^{-9}$ as the average probability of error in the insertion of a new nucleotide during DNA replication.",
-      "prior": null,
-      "belief": 0.42634771995448395,
+      "prior": 0.8,
+      "belief": 0.8,
       "exported": false,
       "metadata": {
-        "source": "artifacts/paper.pdf, p.626"
+        "source": "artifacts/paper.pdf, p.626",
+        "prior": 0.8,
+        "prior_justification": "Watson (1965) estimate based on hydrogen bond energetics and phage T4 data; range spans an order of magnitude (10^-8 to 10^-9), substantial uncertainty."
       }
     },
     {
@@ -521,11 +503,13 @@
       "type": "claim",
       "module": "s4_mutation_rates",
       "content": "In man, the number of cell divisions along the germ line from the fertilized egg to a gamete is roughly 50.",
-      "prior": null,
-      "belief": 0.42634771995448395,
+      "prior": 0.88,
+      "belief": 0.88,
       "exported": false,
       "metadata": {
-        "source": "artifacts/paper.pdf, p.626"
+        "source": "artifacts/paper.pdf, p.626",
+        "prior": 0.88,
+        "prior_justification": "Well-known figure in developmental biology (~50 divisions from fertilized egg to gamete in humans); reasonable order-of-magnitude estimate."
       }
     },
     {
@@ -536,7 +520,7 @@
       "module": "s4_mutation_rates",
       "content": "The rate of mutation resulting from base replacement is estimated as $50 \\times 10^{-8}$ to $50 \\times 10^{-9}$ per nucleotide pair per generation (i.e., $5 \\times 10^{-7}$ to $5 \\times 10^{-8}$). With approximately $4 \\times 10^9$ nucleotide pairs in the mammalian haploid genome, the total number of mutations resulting from base replacement per generation may amount to $200$ to $2{,}000$.",
       "prior": null,
-      "belief": 0.3597102708700479,
+      "belief": 0.7808739264,
       "exported": false,
       "metadata": {
         "source": "artifacts/paper.pdf, p.626",
@@ -558,7 +542,7 @@
       "module": "s4_mutation_rates",
       "content": "The mutation rate per nucleotide pair per generation in Drosophila is roughly ten times as high as in man (i.e., $u \\approx 1.5 \\times 10^{-7}$ rather than $u \\approx 1.5 \\times 10^{-8}$). Another consideration allows the supposition that $u \\approx 1.5 \\times 10^{-7}$ is probably appropriate for the neutral mutation rate of a cistron in Drosophila.",
       "prior": null,
-      "belief": 0.5897477125820769,
+      "belief": 0.7922420669551999,
       "exported": false,
       "metadata": {
         "source": "artifacts/paper.pdf, p.626",
@@ -579,7 +563,7 @@
       "module": "s4_mutation_rates",
       "content": "The estimated total mutation rate per generation (200-2,000 base-replacement mutations) is 100-1,000 times larger than the rate of approximately 2 substitutions per generation allowed by Haldane's natural selection cost. This is consistent with the neutral theory's prediction that the mutation rate per nucleotide per generation directly determines the substitution rate ($k = u$), because neutral mutations fix at a rate equal to the mutation rate regardless of population size.",
       "prior": null,
-      "belief": 0.536518776293392,
+      "belief": 0.8230120387942323,
       "exported": false,
       "metadata": {
         "source": "artifacts/paper.pdf, p.626",
@@ -601,7 +585,7 @@
       "module": "s5_conclusions",
       "content": "If the main conclusion is correct (that neutral or nearly neutral mutations are being produced in each generation at a much higher rate than has been considered before), then we must recognize the great importance of random genetic drift due to finite population number in forming the genetic structure of biological populations. The significance of random genetic drift has been depreciated during the past decade, influenced by the opinion that almost no mutations are neutral and that population sizes are usually so large that random sampling of gametes should be negligible.",
       "prior": null,
-      "belief": 0.3909933741965098,
+      "belief": 0.6629475356209755,
       "exported": true,
       "metadata": {
         "source": "artifacts/paper.pdf, p.626",
@@ -623,7 +607,7 @@
       "module": "s5_conclusions",
       "content": "To emphasize the founder principle but deny the importance of random genetic drift due to finite population number is, in Kimura's opinion, rather similar to assuming a great flood to explain the formation of deep valleys but rejecting a gradual but long lasting process of erosion by water as insufficient to produce such a result.",
       "prior": null,
-      "belief": 0.6560845549792467,
+      "belief": 0.7977297382473801,
       "exported": false,
       "metadata": {
         "source": "artifacts/paper.pdf, p.626",
@@ -688,8 +672,8 @@
     {
       "id": "strat_7",
       "type": "strategy",
-      "strategy_type": "support",
-      "module": "s2_rate_calculation",
+      "strategy_type": "deduction",
+      "module": "s3_neutral_theory",
       "reason": ""
     },
     {
@@ -702,7 +686,7 @@
     {
       "id": "strat_9",
       "type": "strategy",
-      "strategy_type": "deduction",
+      "strategy_type": "support",
       "module": "s3_neutral_theory",
       "reason": ""
     },
@@ -710,42 +694,42 @@
       "id": "strat_10",
       "type": "strategy",
       "strategy_type": "support",
-      "module": "s3_neutral_theory",
+      "module": "s2_rate_calculation",
       "reason": ""
     },
     {
       "id": "strat_11",
       "type": "strategy",
       "strategy_type": "support",
-      "module": "s3_neutral_theory",
+      "module": "s2_rate_calculation",
       "reason": ""
     },
     {
       "id": "strat_12",
-      "type": "strategy",
-      "strategy_type": "support",
-      "module": "s3_neutral_theory",
-      "reason": ""
-    },
-    {
-      "id": "strat_13",
-      "type": "strategy",
-      "strategy_type": "support",
-      "module": "s3_neutral_theory",
-      "reason": ""
-    },
-    {
-      "id": "strat_14",
       "type": "strategy",
       "strategy_type": "compare",
       "module": "s3_neutral_theory",
       "reason": ""
     },
     {
-      "id": "strat_15",
+      "id": "strat_13",
       "type": "strategy",
       "strategy_type": "abduction",
       "module": "s3_neutral_theory",
+      "reason": ""
+    },
+    {
+      "id": "strat_14",
+      "type": "strategy",
+      "strategy_type": "support",
+      "module": "s4_mutation_rates",
+      "reason": ""
+    },
+    {
+      "id": "strat_15",
+      "type": "strategy",
+      "strategy_type": "support",
+      "module": "s4_mutation_rates",
       "reason": ""
     },
     {
@@ -759,25 +743,11 @@
       "id": "strat_17",
       "type": "strategy",
       "strategy_type": "support",
-      "module": "s4_mutation_rates",
-      "reason": ""
-    },
-    {
-      "id": "strat_18",
-      "type": "strategy",
-      "strategy_type": "support",
-      "module": "s4_mutation_rates",
-      "reason": ""
-    },
-    {
-      "id": "strat_19",
-      "type": "strategy",
-      "strategy_type": "support",
       "module": "s5_conclusions",
       "reason": ""
     },
     {
-      "id": "strat_20",
+      "id": "strat_18",
       "type": "strategy",
       "strategy_type": "support",
       "module": "s5_conclusions",
@@ -893,42 +863,37 @@
     },
     {
       "source": "strat_6",
-      "target": "github:kimura_neutral_theory::haldane_limit_for_mammals",
+      "target": "github:kimura_neutral_theory::selection_cannot_explain_rate",
       "role": "conclusion"
     },
     {
-      "source": "github:kimura_neutral_theory::genome_substitution_rate",
-      "target": "strat_7",
-      "role": "premise"
-    },
-    {
-      "source": "github:kimura_neutral_theory::haldane_limit_for_mammals",
+      "source": "github:kimura_neutral_theory::neutral_fixation_probability",
       "target": "strat_7",
       "role": "premise"
     },
     {
       "source": "strat_7",
-      "target": "github:kimura_neutral_theory::selection_cannot_explain_rate",
+      "target": "github:kimura_neutral_theory::neutral_substitution_formula",
       "role": "conclusion"
     },
     {
-      "source": "github:kimura_neutral_theory::selection_cannot_explain_rate",
+      "source": "github:kimura_neutral_theory::neutral_theory_hypothesis",
       "target": "strat_8",
       "role": "premise"
     },
     {
       "source": "strat_8",
-      "target": "github:kimura_neutral_theory::neutral_theory_hypothesis",
+      "target": "github:kimura_neutral_theory::heterozygosity_formula",
       "role": "conclusion"
     },
     {
-      "source": "github:kimura_neutral_theory::neutral_fixation_probability",
+      "source": "github:kimura_neutral_theory::heterozygosity_formula",
       "target": "strat_9",
       "role": "premise"
     },
     {
       "source": "strat_9",
-      "target": "github:kimura_neutral_theory::neutral_substitution_formula",
+      "target": "github:kimura_neutral_theory::drosophila_heterozygosity",
       "role": "conclusion"
     },
     {
@@ -937,172 +902,152 @@
       "role": "premise"
     },
     {
+      "source": "github:kimura_neutral_theory::neutral_substitution_formula",
+      "target": "strat_10",
+      "role": "premise"
+    },
+    {
       "source": "strat_10",
-      "target": "github:kimura_neutral_theory::heterozygosity_formula",
+      "target": "github:kimura_neutral_theory::genome_substitution_rate",
       "role": "conclusion"
     },
     {
-      "source": "github:kimura_neutral_theory::heterozygosity_formula",
+      "source": "github:kimura_neutral_theory::selectionist_view",
       "target": "strat_11",
       "role": "premise"
     },
     {
+      "source": "github:kimura_neutral_theory::selection_cannot_explain_rate",
+      "target": "strat_11",
+      "role": "background"
+    },
+    {
       "source": "strat_11",
-      "target": "github:kimura_neutral_theory::drosophila_heterozygosity",
+      "target": "github:kimura_neutral_theory::genome_substitution_rate",
       "role": "conclusion"
     },
     {
-      "source": "github:kimura_neutral_theory::neutral_theory_hypothesis",
+      "source": "github:kimura_neutral_theory::neutral_predicts_rate",
       "target": "strat_12",
       "role": "premise"
     },
     {
-      "source": "github:kimura_neutral_theory::neutral_substitution_formula",
+      "source": "github:kimura_neutral_theory::selectionist_predicts_rate",
+      "target": "strat_12",
+      "role": "premise"
+    },
+    {
+      "source": "github:kimura_neutral_theory::genome_substitution_rate",
       "target": "strat_12",
       "role": "premise"
     },
     {
       "source": "strat_12",
-      "target": "github:kimura_neutral_theory::neutral_predicts_rate",
-      "role": "conclusion"
-    },
-    {
-      "source": "github:kimura_neutral_theory::selectionist_view",
-      "target": "strat_13",
-      "role": "premise"
-    },
-    {
-      "source": "github:kimura_neutral_theory::selection_cannot_explain_rate",
-      "target": "strat_13",
-      "role": "background"
-    },
-    {
-      "source": "strat_13",
-      "target": "github:kimura_neutral_theory::selectionist_predicts_rate",
-      "role": "conclusion"
-    },
-    {
-      "source": "github:kimura_neutral_theory::neutral_predicts_rate",
-      "target": "strat_14",
-      "role": "premise"
-    },
-    {
-      "source": "github:kimura_neutral_theory::selectionist_predicts_rate",
-      "target": "strat_14",
-      "role": "premise"
-    },
-    {
-      "source": "github:kimura_neutral_theory::genome_substitution_rate",
-      "target": "strat_14",
-      "role": "premise"
-    },
-    {
-      "source": "strat_14",
       "target": "github:kimura_neutral_theory::_anon_002",
       "role": "conclusion"
     },
     {
       "source": "github:kimura_neutral_theory::neutral_theory_hypothesis",
-      "target": "strat_15",
+      "target": "strat_13",
       "role": "premise"
     },
     {
       "source": "github:kimura_neutral_theory::neutral_substitution_formula",
-      "target": "strat_15",
+      "target": "strat_13",
       "role": "premise"
     },
     {
       "source": "github:kimura_neutral_theory::selectionist_view",
-      "target": "strat_15",
+      "target": "strat_13",
       "role": "premise"
     },
     {
       "source": "github:kimura_neutral_theory::neutral_predicts_rate",
-      "target": "strat_15",
+      "target": "strat_13",
       "role": "premise"
     },
     {
       "source": "github:kimura_neutral_theory::selectionist_predicts_rate",
-      "target": "strat_15",
+      "target": "strat_13",
       "role": "premise"
     },
     {
       "source": "github:kimura_neutral_theory::genome_substitution_rate",
-      "target": "strat_15",
+      "target": "strat_13",
       "role": "premise"
     },
     {
-      "source": "strat_15",
+      "source": "strat_13",
       "target": "github:kimura_neutral_theory::_anon_002",
       "role": "conclusion"
     },
     {
       "source": "github:kimura_neutral_theory::watson_mutation_rate",
-      "target": "strat_16",
+      "target": "strat_14",
       "role": "premise"
     },
     {
       "source": "github:kimura_neutral_theory::cell_divisions_to_gamete",
-      "target": "strat_16",
+      "target": "strat_14",
       "role": "premise"
     },
     {
       "source": "github:kimura_neutral_theory::mammalian_genome_size",
-      "target": "strat_16",
+      "target": "strat_14",
       "role": "background"
     },
     {
-      "source": "strat_16",
+      "source": "strat_14",
       "target": "github:kimura_neutral_theory::mammalian_mutation_rate_per_nucleotide",
       "role": "conclusion"
     },
     {
       "source": "github:kimura_neutral_theory::mammalian_mutation_rate_per_nucleotide",
-      "target": "strat_17",
+      "target": "strat_15",
       "role": "premise"
     },
     {
-      "source": "strat_17",
+      "source": "strat_15",
       "target": "github:kimura_neutral_theory::drosophila_mutation_rate",
       "role": "conclusion"
     },
     {
       "source": "github:kimura_neutral_theory::mammalian_mutation_rate_per_nucleotide",
-      "target": "strat_18",
+      "target": "strat_16",
       "role": "premise"
     },
     {
       "source": "github:kimura_neutral_theory::neutral_substitution_formula",
-      "target": "strat_18",
+      "target": "strat_16",
       "role": "premise"
     },
     {
-      "source": "strat_18",
+      "source": "strat_16",
       "target": "github:kimura_neutral_theory::neutral_rate_consistency",
       "role": "conclusion"
     },
     {
       "source": "github:kimura_neutral_theory::neutral_theory_hypothesis",
-      "target": "strat_19",
+      "target": "strat_17",
       "role": "premise"
     },
     {
       "source": "github:kimura_neutral_theory::neutral_rate_consistency",
-      "target": "strat_19",
+      "target": "strat_17",
       "role": "premise"
     },
     {
-      "source": "strat_19",
+      "source": "strat_17",
       "target": "github:kimura_neutral_theory::genetic_drift_importance",
       "role": "conclusion"
     },
     {
       "source": "github:kimura_neutral_theory::genetic_drift_importance",
-      "target": "strat_20",
+      "target": "strat_18",
       "role": "premise"
     },
     {
-      "source": "strat_20",
+      "source": "strat_18",
       "target": "github:kimura_neutral_theory::founder_principle_inadequate",
       "role": "conclusion"
     },

@@ -15,14 +15,14 @@
       "type": "claim"
     },
     {
-      "content": "The observed rate of nucleotide substitution (approximately one per two years per mammalian genome) is so high that it cannot be accounted for by natural selection alone. Haldane's cost of natural selection limits the rate of gene substitution by positive selection to roughly one every 300 generations. The observed molecular substitution rate is 100-1,000 times higher than this limit. Therefore, most nucleotide substitutions in evolution must not have been driven by positive natural selection.",
-      "content_hash": "cf1166e86396904d371d51b2ca031814881a3b61c91cd2fa9d0013a2e6fd0913",
+      "content": "The observed rate of nucleotide substitution (approximately one per two years per mammalian genome) is so high that it cannot be accounted for by natural selection alone. Haldane (1957) showed that the cost of natural selection limits the rate of gene substitution by positive selection to roughly one every 300 generations. For mammals with generation times of a few years, 300 generations corresponds to hundreds to thousands of years. The observed molecular substitution rate is therefore 100-1,000 times higher than this limit, meaning most nucleotide substitutions in evolution must not have been driven by positive natural selection.",
+      "content_hash": "b841eae904e1194f4e3b4f610af68d2d47458f058f920969a2478fda0e2e6e6b",
       "label": "selection_cannot_explain_rate",
       "qid": "github:kimura_neutral_theory::selection_cannot_explain_rate",
       "type": "claim"
     }
   ],
-  "ir_hash": "sha256:109eb7610f037e73f0dfd79e2d74504a92ff52507ab2adce498dd0bba3185d89",
+  "ir_hash": "sha256:e8bf6ebe5c8747b69e27d711fec0f69b367f29ad7acbbdc4c9af21d9d56d96b7",
   "manifest_schema_version": 1,
   "package": "kimura-neutral-theory",
   "version": "0.1.0"

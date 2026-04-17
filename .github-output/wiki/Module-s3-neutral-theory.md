@@ -4,14 +4,14 @@
 
 **QID:** `github:kimura_neutral_theory::neutral_theory_hypothesis`
 **Type:** claim
-**Role:** derived
+**Role:** independent
 **Content:** Most mutations produced by nucleotide replacement are almost neutral in natural selection, meaning they have so little effect on the fitness of the organism that their fate in the population is determined primarily by random genetic drift rather than by selection. The very high rate of nucleotide substitution observed at the molecular level can be explained if most substitutions are the result of random fixation of selectively neutral or nearly neutral mutations.
-**Belief:** 0.22
-**Derived from:** support
-**Premises:** `github:kimura_neutral_theory::selection_cannot_explain_rate`
+**Prior:** 0.50
+**Belief:** 0.47
 **source:** artifacts/paper.pdf, p.625
-**gaia:** {'provenance': {'referenced_claims': ['selection_cannot_explain_rate']}}
-**Referenced by:** support -> `github:kimura_neutral_theory::heterozygosity_formula`; support -> `github:kimura_neutral_theory::neutral_predicts_rate`; abduction -> `github:kimura_neutral_theory::_anon_002`; support -> `github:kimura_neutral_theory::genetic_drift_importance`; unknown -> `github:kimura_neutral_theory::not_both_views`
+**prior:** 0.5
+**prior_justification:** Central hypothesis of the paper; novel and controversial in 1968. Uninformative prior lets the abduction evidence determine posterior.
+**Referenced by:** support -> `github:kimura_neutral_theory::heterozygosity_formula`; support -> `github:kimura_neutral_theory::genome_substitution_rate`; abduction -> `github:kimura_neutral_theory::_anon_002`; support -> `github:kimura_neutral_theory::genetic_drift_importance`; unknown -> `github:kimura_neutral_theory::not_both_views`
 
 ### selectionist_view
 
@@ -19,8 +19,11 @@
 **Type:** claim
 **Role:** independent
 **Content:** The conventional (selectionist) view holds that most molecular evolution is driven by positive natural selection: each amino-acid or nucleotide substitution that becomes fixed in a population does so because it confers a selective advantage. Under this view, the substitution rate is limited by Haldane's cost of natural selection.
-**Belief:** 0.39
-**Referenced by:** support -> `github:kimura_neutral_theory::selectionist_predicts_rate`; abduction -> `github:kimura_neutral_theory::_anon_002`; unknown -> `github:kimura_neutral_theory::not_both_views`
+**Prior:** 0.50
+**Belief:** 0.29
+**prior:** 0.5
+**prior_justification:** Prevailing view in 1968. Symmetric uninformative prior with the neutral theory hypothesis.
+**Referenced by:** support -> `github:kimura_neutral_theory::genome_substitution_rate`; abduction -> `github:kimura_neutral_theory::_anon_002`; unknown -> `github:kimura_neutral_theory::not_both_views`
 
 ### not_both_views
 
@@ -43,12 +46,12 @@
 $$k = u$$
 
 where $u$ is the mutation rate per gamete per generation. This result holds because the probability that a new neutral mutation eventually becomes fixed in a population of effective size $N_e$ is $1/(2N_e)$, and the number of new neutral mutations appearing each generation is $2N_e u$. Multiplying these: $k = 2N_e u \times \frac{1}{2N_e} = u$. This is independent of population size.
-**Belief:** 0.67
+**Belief:** 0.98
 **Derived from:** deduction
 **Premises:** `github:kimura_neutral_theory::neutral_fixation_probability`
 **source:** artifacts/paper.pdf, p.625, formula (1)
 **gaia:** {'provenance': {'referenced_claims': ['neutral_fixation_probability']}}
-**Referenced by:** support -> `github:kimura_neutral_theory::neutral_predicts_rate`; abduction -> `github:kimura_neutral_theory::_anon_002`; support -> `github:kimura_neutral_theory::neutral_rate_consistency`
+**Referenced by:** support -> `github:kimura_neutral_theory::genome_substitution_rate`; abduction -> `github:kimura_neutral_theory::_anon_002`; support -> `github:kimura_neutral_theory::neutral_rate_consistency`
 
 ### neutral_fixation_probability
 
@@ -56,8 +59,11 @@ where $u$ is the mutation rate per gamete per generation. This result holds beca
 **Type:** claim
 **Role:** independent
 **Content:** For a selectively neutral mutation in a diploid population of effective size $N_e$, the probability of eventual fixation is $p = 1/(2N_e)$, which equals the initial frequency of the new allele if it appears as a single copy.
-**Belief:** 0.45
+**Prior:** 0.95
+**Belief:** 0.96
 **source:** artifacts/paper.pdf, p.625
+**prior:** 0.95
+**prior_justification:** Standard result in population genetics, derived rigorously by Kimura (1962) using diffusion theory.
 **Referenced by:** deduction -> `github:kimura_neutral_theory::neutral_substitution_formula`
 
 ### heterozygosity_formula
@@ -70,7 +76,7 @@ where $u$ is the mutation rate per gamete per generation. This result holds beca
 $$H_e = \frac{4 N_e u}{4 N_e u + 1}$$
 
 To attain a heterozygosity of at least $H_e = 0.12$, it is necessary that $N_e \geq 2{,}300$. For a higher heterozygosity such as $H_e = 0.35$, $N_e$ must be about $8{,}000$.
-**Belief:** 0.47
+**Belief:** 0.70
 **Derived from:** support
 **Premises:** `github:kimura_neutral_theory::neutral_theory_hypothesis`
 **source:** artifacts/paper.pdf, p.626
@@ -83,7 +89,7 @@ To attain a heterozygosity of at least $H_e = 0.12$, it is necessary that $N_e \
 **Type:** claim
 **Role:** derived
 **Content:** For Drosophila, with migration between subgroups, heterozygosity of 35 per cent may be attained even if the effective population size $N_e$ is much smaller for each subgroup. This is consistent with the neutral theory's prediction that heterozygosity is maintained by the balance between neutral mutation and random genetic drift.
-**Belief:** 0.64
+**Belief:** 0.78
 **Derived from:** support
 **Premises:** `github:kimura_neutral_theory::heterozygosity_formula`
 **source:** artifacts/paper.pdf, p.626
@@ -93,24 +99,24 @@ To attain a heterozygosity of at least $H_e = 0.12$, it is necessary that $N_e \
 
 **QID:** `github:kimura_neutral_theory::neutral_predicts_rate`
 **Type:** claim
-**Role:** derived
+**Role:** independent
 **Content:** Under the neutral theory, the substitution rate equals the mutation rate ($k = u$), which for mammals with ~$4 \times 10^9$ nucleotide pairs and error rates of $10^{-8}$ to $10^{-9}$ per nucleotide per replication, predicts a genome-wide substitution rate on the order of one per few years. This matches the observed rate of ~1 substitution per 2 years.
-**Belief:** 0.39
-**Derived from:** support
-**Premises:** `github:kimura_neutral_theory::neutral_theory_hypothesis`, `github:kimura_neutral_theory::neutral_substitution_formula`
-**gaia:** {'provenance': {'referenced_claims': ['neutral_substitution_formula', 'neutral_theory_hypothesis']}}
+**Prior:** 0.90
+**Belief:** 1.00
+**prior:** 0.9
+**prior_justification:** Straightforward mathematical consequence of k=u and known genome size / mutation rate. If the neutral theory holds, this prediction follows directly.
 **Referenced by:** compare -> `github:kimura_neutral_theory::_anon_002`; abduction -> `github:kimura_neutral_theory::_anon_002`
 
 ### selectionist_predicts_rate
 
 **QID:** `github:kimura_neutral_theory::selectionist_predicts_rate`
 **Type:** claim
-**Role:** derived
+**Role:** independent
 **Content:** Under the selectionist view, the substitution rate is limited by Haldane's cost of natural selection to roughly one gene substitution every 300 generations. For mammals, this predicts a far lower rate than the observed ~1 substitution per 2 years, a discrepancy of 2-3 orders of magnitude.
-**Belief:** 0.39
-**Derived from:** support
-**Premises:** `github:kimura_neutral_theory::selectionist_view`
-**gaia:** {'provenance': {'referenced_claims': ['selectionist_view']}}
+**Prior:** 0.85
+**Belief:** 1.00
+**prior:** 0.85
+**prior_justification:** Follows from Haldane's cost calculation. The math is well-established; uncertainty is in whether Haldane's cost model fully captures selection dynamics.
 **Referenced by:** compare -> `github:kimura_neutral_theory::_anon_002`; abduction -> `github:kimura_neutral_theory::_anon_002`
 
 ### github:kimura_neutral_theory::_anon_002
